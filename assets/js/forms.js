@@ -1,3 +1,25 @@
+import { clinic } from "./site-config.js?v=20260730c";
+
+export function buildWhatsAppBookingUrl(values) {
+  const lines = [
+    "Hello Dr. Arunima Mustyala, I would like to request a consultation.",
+    "",
+    `Name: ${values.name}`,
+    `Consultation: ${values.appointmentType}`,
+    `Primary concern: ${values.condition}`,
+    `Preferred date: ${values.preferredDate}`,
+    `Preferred time: ${values.preferredTime}`,
+  ];
+
+  if (values.note) lines.push(`Brief note: ${values.note}`);
+  lines.push(
+    "",
+    "Please confirm availability. I understand this request is not confirmed and WhatsApp is not an emergency service.",
+  );
+
+  return `${clinic.whatsappBaseHref}?text=${encodeURIComponent(lines.join("\n"))}`;
+}
+
 export function validateEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value).trim());
 }
@@ -43,10 +65,19 @@ export function initForms(root = document) {
         return;
       }
 
-      if (status) {
-        status.textContent = "Demo complete — no information was transmitted or stored.";
+      const values = Object.fromEntries(new FormData(form).entries());
+      const bookingUrl = buildWhatsAppBookingUrl(values);
+      const fallback = form.querySelector("[data-whatsapp-fallback]");
+
+      if (fallback) {
+        fallback.href = bookingUrl;
+        fallback.hidden = false;
       }
-      form.reset();
+      if (status) {
+        status.textContent =
+          "Your request is ready. Continue in WhatsApp to send it to Dr. Arunima.";
+      }
+      window.open(bookingUrl, "_blank", "noopener,noreferrer");
     });
   });
 }
