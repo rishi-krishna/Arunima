@@ -58,6 +58,22 @@ function normalizePath(pathname) {
   return path === "/" ? path : `${path.replace(/\/$/, "")}/`;
 }
 
+function pathWithinSite(pathname) {
+  const basePath = new URL(document.baseURI).pathname.replace(/\/?$/, "/");
+  if (basePath !== "/" && pathname.startsWith(basePath)) {
+    return `/${pathname.slice(basePath.length)}`;
+  }
+  return pathname;
+}
+
+export function normalizeInternalUrls(root = document) {
+  root.querySelectorAll('a[href^="/"], [src^="/"]').forEach((element) => {
+    const attribute = element.hasAttribute("href") ? "href" : "src";
+    const value = element.getAttribute(attribute);
+    element.setAttribute(attribute, value === "/" ? "." : value.slice(1));
+  });
+}
+
 function activeSection(pathname) {
   if (treatmentRoutes.some(([route]) => pathname === route)) return "/treatments/";
   if (pathname.startsWith("/blog/")) return "/blog/";
@@ -119,7 +135,7 @@ export function populateClinicFields(root = document) {
 }
 
 export function initActiveRoutes(root = document, pathname = window.location.pathname) {
-  const currentPath = normalizePath(pathname);
+  const currentPath = normalizePath(pathWithinSite(pathname));
   const section = activeSection(currentPath);
   root.querySelectorAll("[data-route]").forEach((link) => {
     const route = normalizePath(link.dataset.route);
@@ -304,6 +320,7 @@ export function initNewsletter(root = document) {
 }
 
 export function initSiteInteractions(root = document) {
+  normalizeInternalUrls(root);
   populateClinicFields(root);
   initActiveRoutes(root);
   initNavigation(root);
