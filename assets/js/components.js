@@ -134,8 +134,6 @@ class SiteFooter extends BaseElement {
             <p><strong>${escapeHtml(clinic.practitioner)}</strong><br>
               ${escapeHtml(clinic.credentials)}<br>
               Registration ${escapeHtml(clinic.registration)}, ${escapeHtml(clinic.board)}</p>
-            <p><a href="${clinic.phoneHref}">${escapeHtml(clinic.phoneDisplay)}</a><br>
-              <a href="mailto:${escapeHtml(clinic.email)}">${escapeHtml(clinic.email)}</a></p>
           </section>
           <nav aria-labelledby="footer-quick-links">
             <h4 id="footer-quick-links">Quick links</h4>
@@ -159,8 +157,7 @@ class SiteFooter extends BaseElement {
             </div>
           </nav>
           <section aria-labelledby="footer-visit">
-            <h4 id="footer-visit">Visit and stay informed</h4>
-            <address>${escapeHtml(clinic.address)}</address>
+            <h4 id="footer-visit">Hours and updates</h4>
             <p><strong>Hours</strong><br>Monday–Saturday: 10:00 AM–7:00 PM<br>
               Sunday: By appointment</p>
             <form data-newsletter-form novalidate>
@@ -226,11 +223,8 @@ class CallbackPanel extends BaseElement {
           <button class="theme-toggle" type="button" data-overlay-close
             aria-label="Close callback panel">✕</button>
           <h2 id="callback-title">Request a callback</h2>
-          <p>Call us directly or use the appointment page to share your preferred time.
+          <p>Use the appointment page to share your preferred time.
             This demonstration does not transmit patient information.</p>
-          <p><a class="button button--primary" href="${clinic.phoneHref}">
-            Call ${escapeHtml(clinic.phoneDisplay)}
-          </a></p>
           <p><a class="button button--outline" href="/book-appointment/">
             Choose a consultation time
           </a></p>
@@ -257,9 +251,6 @@ class ClinicAssistant extends BaseElement {
             <a href="/treatments/">Explore treatments</a>
             <a href="/pricing/">Review program pricing</a>
             <a href="/book-appointment/">Book an assessment</a>
-            <a href="${clinic.whatsappHref}" target="_blank" rel="noopener noreferrer">
-              Chat on WhatsApp
-            </a>
           </div>
           <p><small>This assistant provides navigation only, not medical advice.</small></p>
         </div>

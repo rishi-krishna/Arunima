@@ -1,4 +1,4 @@
-# Arunima Mustyala Clinic
+# Arunima Mustyala
 
 Basic static website built with:
 
