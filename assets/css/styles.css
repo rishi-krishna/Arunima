@@ -243,6 +243,27 @@ h4 {
   color: var(--primary);
 }
 
+.button--whatsapp,
+.site-nav__whatsapp {
+  border-color: #1fa955;
+  background: #25d366;
+  color: #082713;
+}
+
+.button--whatsapp:hover,
+.site-nav__whatsapp:hover,
+.whatsapp-action:hover {
+  background: #20c45e;
+  box-shadow: 0 14px 34px rgb(18 124 59 / .24);
+}
+
+.button:focus-visible,
+.site-nav__whatsapp:focus-visible,
+.whatsapp-action:focus-visible {
+  outline: 3px solid color-mix(in srgb, #25d366 55%, white);
+  outline-offset: 3px;
+}
+
 .button--hero {
   min-height: 61px;
   padding: 16px 28px;
@@ -317,6 +338,22 @@ h4 {
 .site-nav__link[aria-current="page"] {
   border-color: color-mix(in srgb, var(--border) 70%, transparent);
   background: color-mix(in srgb, var(--card) 78%, transparent);
+}
+
+.site-nav__whatsapp {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  padding: 7px 13px;
+  border: 1px solid #1fa955;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+.site-nav__whatsapp:hover {
+  transform: translateY(-1px);
 }
 
 .nav-menu {
@@ -890,6 +927,14 @@ h4 {
   resize: vertical;
 }
 
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: color-mix(in srgb, var(--primary) 70%, white);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 12%, transparent);
+  outline: 0;
+}
+
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -900,6 +945,35 @@ h4 {
   min-height: 24px;
   color: var(--primary);
   font-weight: 600;
+}
+
+.consent-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: color-mix(in srgb, var(--primary) 4%, var(--background));
+  cursor: pointer;
+}
+
+.consent-row input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--primary);
+}
+
+.booking-aside__action {
+  display: grid;
+  gap: 12px;
+  padding-block: 6px;
+}
+
+.booking-aside__action .button {
+  width: 100%;
 }
 
 .site-footer {
@@ -1023,9 +1097,10 @@ h4 {
   color: var(--primary-foreground);
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1320px) {
   .site-nav__links,
-  .site-nav__account {
+  .site-nav__account,
+  .site-nav__whatsapp {
     display: none;
   }
 
@@ -1033,7 +1108,9 @@ h4 {
     display: inline-grid;
     place-items: center;
   }
+}
 
+@media (max-width: 1180px) {
   .site-footer__main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1747,6 +1824,9 @@ main > .site-section[aria-labelledby="protocols-title"] {
   .whatsapp-action {
     right: 16px;
     bottom: 82px;
+    width: 52px;
+    padding: 12px;
+    justify-content: center;
   }
 
   .whatsapp-action span {

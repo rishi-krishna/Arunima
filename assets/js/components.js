@@ -90,8 +90,12 @@ class SiteHeader extends BaseElement {
             <span aria-hidden="true" data-theme-icon>☾</span>
           </button>
           <a class="site-nav__account site-nav__link" href="/my-journey/">My Journey</a>
+          <a class="site-nav__whatsapp" href="${clinic.whatsappHref}" target="_blank"
+            rel="noopener noreferrer" aria-label="Chat with Dr. Arunima Mustyala on WhatsApp">
+            WhatsApp
+          </a>
           <a class="button button--primary site-nav__account" href="/book-appointment/">
-            Book Appointment
+            Book Consultation
           </a>
           <button class="mobile-toggle" type="button" data-mobile-toggle
             aria-expanded="false" aria-controls="mobile-navigation"
@@ -111,7 +115,11 @@ class SiteHeader extends BaseElement {
             <p><strong>Treatments</strong></p>
             ${links(treatmentRoutes, "site-nav__link")}
             <a class="site-nav__link" href="/my-journey/">My Journey</a>
-            <a class="button button--primary" href="/book-appointment/">Book Appointment</a>
+            <a class="button button--whatsapp" href="${clinic.whatsappHref}" target="_blank"
+              rel="noopener noreferrer" aria-label="Chat with Dr. Arunima Mustyala on WhatsApp">
+              WhatsApp Dr. Arunima
+            </a>
+            <a class="button button--primary" href="/book-appointment/">Book Consultation</a>
           </div>
         </nav>
       </div>`;
@@ -129,8 +137,8 @@ class SiteFooter extends BaseElement {
         <div class="container site-footer__main">
           <section aria-labelledby="footer-clinic">
             <h3 id="footer-clinic">${escapeHtml(clinic.clinicName)}</h3>
-            <p>Personalized homeopathic care built around careful assessment, structured
-              programs, and measurable follow-up.</p>
+            <p>Dr. Arunima's personal homeopathic practice, built around careful assessment,
+              structured programs, and measurable follow-up.</p>
             <p><strong>${escapeHtml(clinic.practitioner)}</strong><br>
               ${escapeHtml(clinic.credentials)}<br>
               Registration ${escapeHtml(clinic.registration)}, ${escapeHtml(clinic.board)}</p>
@@ -214,7 +222,7 @@ class CallbackPanel extends BaseElement {
     this.innerHTML = `
       <button class="button button--primary floating-action" type="button"
         data-overlay-trigger="callback-dialog" aria-haspopup="dialog" aria-expanded="false">
-        Request a callback
+        Request consultation
       </button>
       <div class="overlay" id="callback-dialog" data-overlay data-open="false"
         aria-hidden="true">
@@ -222,11 +230,11 @@ class CallbackPanel extends BaseElement {
           aria-labelledby="callback-title" tabindex="-1">
           <button class="theme-toggle" type="button" data-overlay-close
             aria-label="Close callback panel">✕</button>
-          <h2 id="callback-title">Request a callback</h2>
-          <p>Use the appointment page to share your preferred time.
-            This demonstration does not transmit patient information.</p>
+          <h2 id="callback-title">Request a consultation</h2>
+          <p>Share your preferred consultation type and time. Your request will be prepared
+            as a WhatsApp message for Dr. Arunima to review.</p>
           <p><a class="button button--outline" href="/book-appointment/">
-            Choose a consultation time
+            Book Consultation
           </a></p>
         </section>
       </div>`;
@@ -238,21 +246,21 @@ class ClinicAssistant extends BaseElement {
     if (this.dataset.ready === "true") return;
     this.dataset.ready = "true";
     this.innerHTML = `
-      <aside class="assistant-card" aria-label="Clinic assistant">
+      <aside class="assistant-card" aria-label="Dr. Arunima's consultation assistant">
         <button class="assistant-card__header" type="button" data-assistant-toggle
           aria-expanded="false" aria-controls="clinic-assistant-body"
           style="width:100%;display:flex;align-items:center;justify-content:space-between;border:0;cursor:pointer;text-align:left">
-          <strong>Clinic assistant</strong>
+          <strong>Dr. Arunima's assistant</strong>
           <span aria-hidden="true" data-assistant-icon>＋</span>
         </button>
         <div class="assistant-card__body" id="clinic-assistant-body" data-assistant-body hidden>
-          <p>Hello. How can we help you find the right next step?</p>
+          <p>Hello. Choose a care topic or request a consultation with Dr. Arunima.</p>
           <div class="site-footer__links">
             <a href="/treatments/">Explore treatments</a>
             <a href="/pricing/">Review program pricing</a>
-            <a href="/book-appointment/">Book an assessment</a>
+            <a href="/book-appointment/">Book Consultation</a>
             <a href="${clinic.whatsappHref}" target="_blank" rel="noopener noreferrer">
-              Continue on WhatsApp
+              WhatsApp Dr. Arunima
             </a>
           </div>
           <p><small>This assistant provides navigation only, not medical advice.</small></p>
@@ -267,7 +275,7 @@ class WhatsAppAction extends BaseElement {
     this.dataset.ready = "true";
     this.innerHTML = `
       <a class="whatsapp-action" href="${clinic.whatsappHref}" target="_blank"
-        rel="noopener noreferrer" aria-label="Chat with Arunima Mustyala on WhatsApp">
+        rel="noopener noreferrer" aria-label="Chat with Dr. Arunima Mustyala on WhatsApp">
         <svg aria-hidden="true" viewBox="0 0 32 32" width="25" height="25">
           <path fill="currentColor" d="M16.04 3A12.72 12.72 0 0 0 5.1 22.2L3 29l6.96-2.03A12.73 12.73 0 1 0 16.04 3Zm0 2.14a10.58 10.58 0 1 1-5.43 19.66l-.38-.23-4.13 1.2 1.24-4.02-.25-.4a10.58 10.58 0 0 1 8.95-16.21Zm-4.43 5.2c-.25 0-.65.1-.99.47-.34.38-1.3 1.27-1.3 3.1s1.33 3.6 1.52 3.85c.19.25 2.62 4 6.35 5.61.89.38 1.58.61 2.12.78.89.28 1.7.24 2.34.15.71-.1 2.19-.9 2.5-1.76.31-.87.31-1.61.22-1.76-.09-.16-.34-.25-.71-.44-.37-.18-2.19-1.08-2.53-1.2-.34-.13-.59-.19-.84.18-.25.38-.96 1.21-1.18 1.46-.22.25-.43.28-.8.09-.38-.19-1.58-.58-3-1.85a11.2 11.2 0 0 1-2.08-2.59c-.22-.37-.02-.57.16-.76.17-.17.38-.44.56-.66.19-.22.25-.37.38-.62.12-.25.06-.47-.03-.66-.1-.19-.84-2.02-1.15-2.77-.3-.73-.61-.63-.84-.64h-.71Z"/>
         </svg>
