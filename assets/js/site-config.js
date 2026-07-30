@@ -1,6 +1,6 @@
 export const clinic = Object.freeze({
-  practitioner: "Arunima Mustyala",
-  clinicName: "Arunima Mustyala",
+  practitioner: "Dr. Arunima Mustyala",
+  clinicName: "Dr. Arunima Mustyala",
   credentials: "BHMS | PG Hom (London) | Fellowship (Germany)",
   registration: "PR-3641/H/2025",
   board: "Telangana Board",
@@ -10,6 +10,7 @@ export const clinic = Object.freeze({
   reviewCount: "600+",
   assessmentPrice: "₹999",
   whatsappNumber: "+91 63031 96195",
+  whatsappBaseHref: "https://wa.me/916303196195",
   whatsappHref:
-    "https://wa.me/916303196195?text=Hello%20Arunima%20Mustyala%2C%20I%20would%20like%20to%20know%20more%20about%20an%20assessment.",
+    "https://wa.me/916303196195?text=Hello%20Dr.%20Arunima%20Mustyala%2C%20I%20would%20like%20to%20know%20more%20about%20a%20consultation.",
 });
