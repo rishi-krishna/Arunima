@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Request an in-clinic or online homeopathy assessment with Arunima Mustyala in Hyderabad.">
+  <title>Book an Appointment | Arunima Mustyala Clinic</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="module" src="/assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <site-header></site-header>
+  <main id="main-content">
+    <header class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Begin with a detailed assessment</p>
+        <h1>Request Your Appointment</h1>
+        <p class="page-hero__summary">Choose how you would like to consult and share a preferred time. The clinic will confirm availability separately.</p>
+      </div>
+    </header>
+
+    <section class="site-section" aria-labelledby="booking-form-title">
+      <div class="container form-layout">
+        <form class="surface form-card" data-static-form novalidate style="display:grid;gap:18px">
+          <div class="section-heading">
+            <p class="eyebrow">Appointment request</p>
+            <h2 id="booking-form-title">Tell us what works for you</h2>
+            <p>Fields marked with an asterisk are required.</p>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="appointment-type">Appointment type *</label>
+              <select id="appointment-type" name="appointmentType" required>
+                <option value="">Choose an option</option>
+                <option>In-clinic consultation</option>
+                <option>Online video consultation</option>
+                <option>Follow-up consultation</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="appointment-condition">Primary concern *</label>
+              <select id="appointment-condition" name="condition" required>
+                <option value="">Choose a concern</option>
+                <option>Skin health</option>
+                <option>PCOD or fibroids</option>
+                <option>Adenoids or child respiratory health</option>
+                <option>Allergies</option>
+                <option>Hair loss</option>
+                <option>Thyroid health</option>
+                <option>Another concern</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="preferred-date">Preferred date *</label>
+              <input id="preferred-date" name="preferredDate" type="date" required>
+            </div>
+            <div class="field">
+              <label for="preferred-time">Preferred time *</label>
+              <select id="preferred-time" name="preferredTime" required>
+                <option value="">Choose a time window</option>
+                <option>10:00 AM–1:00 PM</option>
+                <option>1:00 PM–4:00 PM</option>
+                <option>4:00 PM–7:00 PM</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="booking-name">Full name *</label>
+              <input id="booking-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="booking-phone">Mobile number *</label>
+              <input id="booking-phone" name="phone" type="tel" autocomplete="tel"
+                inputmode="tel" placeholder="+91 98765 43210" data-validate="phone" required>
+            </div>
+            <div class="field">
+              <label for="booking-email">Email address *</label>
+              <input id="booking-email" name="email" type="email" autocomplete="email"
+                placeholder="patient@example.com" data-validate="email" required>
+            </div>
+            <div class="field">
+              <label for="booking-contact">Preferred confirmation method *</label>
+              <select id="booking-contact" name="contactMethod" required>
+                <option value="">Choose a method</option>
+                <option>Phone call</option>
+                <option>WhatsApp</option>
+                <option>Email</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="booking-note">Brief note (optional)</label>
+            <textarea id="booking-note" name="note" placeholder="Do not include urgent, highly sensitive, or emergency information."></textarea>
+          </div>
+          <p>
+            <label class="cluster">
+              <input name="consent" type="checkbox" required style="width:auto">
+              <span>I understand this is a demonstration form and does not send an appointment request. *</span>
+            </label>
+          </p>
+          <button class="button button--assessment" type="submit">Review Demo Request</button>
+          <p class="form-status" data-form-status aria-live="polite"></p>
+          <p class="muted"><strong>No information is transmitted or stored.</strong> For a real request, call the clinic using the contact details shown on this page.</p>
+        </form>
+
+        <aside class="surface form-card" aria-labelledby="booking-summary-title">
+          <p class="eyebrow">Your first visit</p>
+          <h2 id="booking-summary-title">Clinical assessment</h2>
+          <p style="font-size:2rem;font-weight:700">₹999</p>
+          <p>Approximately 60 minutes for detailed case history, previous treatment review, goals, and suitability.</p>
+          <ul class="check-list">
+            <li>In-clinic or online option</li>
+            <li>Clear next-step recommendation</li>
+            <li>Assessment fee credited if you enroll</li>
+            <li>No obligation to choose a program</li>
+          </ul>
+          <hr>
+          <p><strong>Need help?</strong><br>
+            <a href="tel:+919066562562">+91 90665 62562</a><br>
+            Monday–Saturday, 10:00 AM–7:00 PM</p>
+          <p class="muted">This page does not provide emergency care. Seek immediate local medical help for urgent symptoms.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <site-footer></site-footer>
+  <cookie-notice></cookie-notice>
+  <callback-panel></callback-panel>
+  <clinic-assistant></clinic-assistant>
+</body>
+</html>

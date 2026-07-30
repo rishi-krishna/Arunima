@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Preview the Arunima Mustyala Clinic patient journey portal for appointments, milestones, notes, and program progress.">
+  <title>My Journey Portal Preview | Arunima Mustyala Clinic</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="module" src="/assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <site-header></site-header>
+  <main id="main-content">
+    <header class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Patient portal preview</p>
+        <h1>Your Care Journey, in One Place</h1>
+        <p class="page-hero__summary">The planned portal will organize appointments, program milestones, review notes, and progress check-ins. Account actions on this page are demonstrations only.</p>
+      </div>
+    </header>
+
+    <section class="site-section" aria-labelledby="account-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Demo account access</p>
+          <h2 id="account-title">Sign in or create a preview account</h2>
+          <p><strong>No account will be created. No information entered here will be transmitted or stored.</strong></p>
+        </div>
+        <div class="grid grid--2">
+          <form class="surface form-card" data-static-form novalidate style="display:grid;gap:18px">
+            <h3>Sign in</h3>
+            <div class="field">
+              <label for="signin-email">Email address *</label>
+              <input id="signin-email" name="email" type="email" autocomplete="email"
+                data-validate="email" required>
+            </div>
+            <div class="field">
+              <label for="signin-password">Password *</label>
+              <input id="signin-password" name="password" type="password"
+                autocomplete="current-password" minlength="8" required>
+            </div>
+            <p><label class="cluster"><input name="remember" type="checkbox" style="width:auto"><span>Remember me on this device</span></label></p>
+            <button class="button button--primary" type="submit">Test Sign In</button>
+            <p class="form-status" data-form-status aria-live="polite"></p>
+            <p class="muted">Demo only — the portal is not connected to an authentication service.</p>
+          </form>
+
+          <form class="surface form-card" data-static-form novalidate style="display:grid;gap:18px">
+            <h3>Create a preview account</h3>
+            <div class="form-grid">
+              <div class="field">
+                <label for="register-name">Full name *</label>
+                <input id="register-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="register-phone">Mobile number *</label>
+                <input id="register-phone" name="phone" type="tel" autocomplete="tel"
+                  inputmode="tel" data-validate="phone" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="register-email">Email address *</label>
+              <input id="register-email" name="email" type="email" autocomplete="email"
+                data-validate="email" required>
+            </div>
+            <div class="field">
+              <label for="register-password">Create password *</label>
+              <input id="register-password" name="password" type="password"
+                autocomplete="new-password" minlength="8" required>
+            </div>
+            <p><label class="cluster"><input name="terms" type="checkbox" style="width:auto" required><span>I understand this is a non-functional preview and accept the <a href="/terms-of-service/">Terms of Service</a>. *</span></label></p>
+            <button class="button button--outline" type="submit">Test Registration</button>
+            <p class="form-status" data-form-status aria-live="polite"></p>
+            <p class="muted">Demo only — no profile or password is transmitted or stored.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section site-section--sage" aria-labelledby="dashboard-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Illustrative dashboard</p>
+          <h2 id="dashboard-title">A calm view of your progress</h2>
+          <p>Sample information below shows the planned structure. It is not a real patient record.</p>
+        </div>
+        <div class="grid grid--3">
+          <article class="surface form-card">
+            <span class="badge">Sample</span>
+            <h3>Next check-in</h3>
+            <p style="font-size:1.5rem;font-weight:700">14 August · 4:30 PM</p>
+            <p class="muted">Online progress consultation</p>
+          </article>
+          <article class="surface form-card">
+            <span class="badge">Sample</span>
+            <h3>Current milestone</h3>
+            <p style="font-size:1.5rem;font-weight:700">Month 2 of 6</p>
+            <p class="muted">Review comfort, frequency, and daily wellbeing measures.</p>
+          </article>
+          <article class="surface form-card">
+            <span class="badge">Sample</span>
+            <h3>Actions this week</h3>
+            <ul class="check-list">
+              <li>Complete symptom check-in</li>
+              <li>Note current medicines</li>
+              <li>Prepare review questions</li>
+            </ul>
+          </article>
+        </div>
+        <div class="surface form-card" style="margin-top:24px">
+          <h3>Planned portal sections</h3>
+          <div class="grid grid--4">
+            <div><strong>Appointments</strong><p class="muted">Upcoming and previous consultations</p></div>
+            <div><strong>Milestones</strong><p class="muted">Measures agreed during reviews</p></div>
+            <div><strong>Care notes</strong><p class="muted">Clinician-approved guidance</p></div>
+            <div><strong>Documents</strong><p class="muted">Future secure report access</p></div>
+          </div>
+          <p class="muted"><strong>Preview state:</strong> no clinical records, documents, messages, or account data are connected to this interface.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <site-footer></site-footer>
+  <cookie-notice></cookie-notice>
+  <callback-panel></callback-panel>
+  <clinic-assistant></clinic-assistant>
+</body>
+</html>
