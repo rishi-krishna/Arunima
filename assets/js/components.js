@@ -80,7 +80,7 @@ class SiteHeader extends BaseElement {
         <div class="container site-nav__inner">
           <a class="site-brand" href="/" aria-label="${escapeHtml(clinic.clinicName)} home">
             <img src="/assets/images/logo-mark.svg" alt="" width="38" height="38">
-            <span>${escapeHtml(clinic.clinicName)}</span>
+            <span>${escapeHtml(clinic.practitioner)}</span>
           </a>
           <nav class="site-nav__links" aria-label="Primary navigation">
             ${desktopLinks}

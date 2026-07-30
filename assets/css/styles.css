@@ -389,9 +389,11 @@ h4 {
 }
 
 .hero__credentials {
+  max-width: 1120px;
+  margin-inline: auto;
   margin-bottom: 5px;
   color: var(--primary);
-  font-size: clamp(19px, 2.1vw, 30px);
+  font-size: clamp(19px, 1.7vw, 26px);
   font-weight: 700;
 }
 

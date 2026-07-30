@@ -73,9 +73,7 @@ function setExpanded(button, expanded, openLabel, closeLabel) {
 
 export function initTheme(root = document) {
   const saved = storage.get("arunima-theme");
-  const prefersDark =
-    typeof matchMedia === "function" && matchMedia("(prefers-color-scheme: dark)").matches;
-  const theme = saved === "dark" || saved === "light" ? saved : prefersDark ? "dark" : "light";
+  const theme = saved === "dark" || saved === "light" ? saved : "light";
   document.documentElement.dataset.theme = theme;
   updateThemeButtons(root);
 }
@@ -321,4 +319,3 @@ export function initSiteInteractions(root = document) {
   });
   updateThemeButtons(root);
 }
-
