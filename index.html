@@ -100,8 +100,23 @@
           <p>Each program has a defined timeline, tracked milestones, and medicines matched to your case. The assessment determines whether a protocol is appropriate for you.</p>
         </div>
 
+        <div class="protocol-tabs" role="tablist" aria-label="Treatment protocols">
+          <button class="protocol-tab" type="button" role="tab" aria-selected="true"
+            aria-controls="protocol-dermacare" data-protocol-tab="protocol-dermacare">
+            <span>DermaCare</span><small>Skin concerns · 6 months</small>
+          </button>
+          <button class="protocol-tab" type="button" role="tab" aria-selected="false"
+            aria-controls="protocol-fibrocare" data-protocol-tab="protocol-fibrocare">
+            <span>FibroCare</span><small>Women’s health · 9 months</small>
+          </button>
+          <button class="protocol-tab" type="button" role="tab" aria-selected="false"
+            aria-controls="protocol-adenoidcare" data-protocol-tab="protocol-adenoidcare">
+            <span>AdenoidCare</span><small>Children · 6 months</small>
+          </button>
+        </div>
         <div class="protocol-stack">
-          <article class="surface protocol" aria-labelledby="dermacare-title">
+          <article class="surface protocol" id="protocol-dermacare" role="tabpanel"
+            data-protocol-panel aria-labelledby="dermacare-title">
             <div class="protocol__top">
               <div>
                 <div class="cluster"><span class="protocol__duration">6 months</span><span class="badge">Most popular</span></div>
@@ -139,7 +154,8 @@
             </div>
           </article>
 
-          <article class="surface protocol" aria-labelledby="fibrocare-title">
+          <article class="surface protocol" id="protocol-fibrocare" role="tabpanel"
+            data-protocol-panel aria-labelledby="fibrocare-title" hidden>
             <div class="protocol__top">
               <div>
                 <div class="cluster"><span class="protocol__duration">9 months</span><span class="badge">Comprehensive</span></div>
@@ -177,7 +193,8 @@
             </div>
           </article>
 
-          <article class="surface protocol" aria-labelledby="adenoidcare-title">
+          <article class="surface protocol" id="protocol-adenoidcare" role="tabpanel"
+            data-protocol-panel aria-labelledby="adenoidcare-title" hidden>
             <div class="protocol__top">
               <div>
                 <div class="cluster"><span class="protocol__duration">6 months</span><span class="badge">For kids</span></div>
@@ -258,35 +275,96 @@
       </div>
     </section>
 
-    <section class="site-section" aria-labelledby="experiences-title">
+    <section class="site-section experiences-section" aria-labelledby="experiences-title">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Patient experiences</p>
-          <h2 id="experiences-title">Care That Feels Personal—and Progress You Can See</h2>
-          <p>Illustrative summaries of the kinds of experiences patients share. Individual outcomes differ, and no result is guaranteed.</p>
+          <h2 id="experiences-title">Patient Experiences</h2>
+          <p>Illustrative summaries showing how patients commonly describe structured, attentive care. Individual outcomes differ.</p>
         </div>
-        <div class="grid grid--3">
-          <figure class="surface testimonial">
-            <div class="testimonial__body">
-              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <blockquote>“Every question was heard, and the milestones made it easier to understand whether I was moving in the right direction.”</blockquote>
-              <figcaption><strong>Skin-care patient</strong><br><span class="muted">Hyderabad · illustrative review</span></figcaption>
+        <div class="experience-summary surface">
+          <div>
+            <h3>What Patients Say Most</h3>
+            <p class="muted">Themes appearing frequently in feedback</p>
+          </div>
+          <div class="experience-themes">
+            <span>Thorough assessment</span><span>Clear explanations</span>
+            <span>Personal attention</span><span>Structured follow-up</span>
+            <span>Easy communication</span>
+          </div>
+        </div>
+
+        <div class="review-toolbar">
+          <div>
+            <h3>Filter by Ailment</h3>
+            <div class="review-filters" role="group" aria-label="Filter patient experiences">
+              <button type="button" class="review-filter" data-review-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="review-filter" data-review-filter="skin" aria-pressed="false">Skin</button>
+              <button type="button" class="review-filter" data-review-filter="women" aria-pressed="false">Women’s health</button>
+              <button type="button" class="review-filter" data-review-filter="children" aria-pressed="false">Children</button>
             </div>
-          </figure>
-          <figure class="surface testimonial">
-            <div class="testimonial__body">
-              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <blockquote>“The consultation was calm and thorough. I especially valued the clear explanation of when other medical support might be needed.”</blockquote>
-              <figcaption><strong>Women’s-health patient</strong><br><span class="muted">KPHB · illustrative review</span></figcaption>
-            </div>
-          </figure>
-          <figure class="surface testimonial">
-            <div class="testimonial__body">
-              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <blockquote>“As a parent, having a structured way to track sleep, breathing, and infections helped me ask better questions.”</blockquote>
-              <figcaption><strong>Parent of pediatric patient</strong><br><span class="muted">Kukatpally · illustrative review</span></figcaption>
-            </div>
-          </figure>
+          </div>
+          <div class="carousel-controls">
+            <button type="button" data-review-prev aria-label="Previous patient experience">←</button>
+            <span data-review-status aria-live="polite">1 / 6</span>
+            <button type="button" data-review-next aria-label="Next patient experience">→</button>
+          </div>
+        </div>
+
+        <div class="review-carousel" data-review-carousel>
+          <div class="review-track" data-review-track>
+            <figure class="surface testimonial" data-review-card data-category="skin">
+              <div class="testimonial__body">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote>“Every question was heard, and the milestones made it easier to understand whether I was moving in the right direction.”</blockquote>
+                <figcaption><strong>Skin-care patient</strong><br><span class="muted">Illustrative review</span></figcaption>
+              </div>
+            </figure>
+            <figure class="surface testimonial" data-review-card data-category="women">
+              <div class="testimonial__body">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote>“The consultation was calm and thorough. I valued the clear explanation of every step and when other medical support might be needed.”</blockquote>
+                <figcaption><strong>Women’s-health patient</strong><br><span class="muted">Illustrative review</span></figcaption>
+              </div>
+            </figure>
+            <figure class="surface testimonial" data-review-card data-category="children">
+              <div class="testimonial__body">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote>“Tracking sleep, breathing, and infections gave us a much clearer way to discuss progress at each follow-up.”</blockquote>
+                <figcaption><strong>Parent of pediatric patient</strong><br><span class="muted">Illustrative review</span></figcaption>
+              </div>
+            </figure>
+            <figure class="surface testimonial" data-review-card data-category="skin">
+              <div class="testimonial__body">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote>“I appreciated that the assessment covered triggers and daily routines instead of looking at the visible symptoms alone.”</blockquote>
+                <figcaption><strong>Dermatitis-care patient</strong><br><span class="muted">Illustrative review</span></figcaption>
+              </div>
+            </figure>
+            <figure class="surface testimonial" data-review-card data-category="women">
+              <div class="testimonial__body">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote>“The plan felt practical because the expected milestones and review schedule were explained before I began.”</blockquote>
+                <figcaption><strong>Cycle-care patient</strong><br><span class="muted">Illustrative review</span></figcaption>
+              </div>
+            </figure>
+            <figure class="surface testimonial" data-review-card data-category="children">
+              <div class="testimonial__body">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote>“Questions were answered patiently, and we always knew which symptoms needed a separate pediatric or ENT review.”</blockquote>
+                <figcaption><strong>Parent-care review</strong><br><span class="muted">Illustrative review</span></figcaption>
+              </div>
+            </figure>
+          </div>
+        </div>
+
+        <div class="review-callouts">
+          <h3>Key Patient Callouts</h3>
+          <div class="grid grid--3">
+            <div class="surface"><strong>“Listens before recommending”</strong><span>Detailed first conversations</span></div>
+            <div class="surface"><strong>“Explains the full plan”</strong><span>Timelines and milestones upfront</span></div>
+            <div class="surface"><strong>“Follow-up feels consistent”</strong><span>Regular progress conversations</span></div>
+          </div>
         </div>
         <p class="section-action"><a class="button button--outline" href="patient-stories/">Read patient stories</a></p>
       </div>
@@ -414,13 +492,21 @@
           </div>
           <span class="button button--outline" aria-disabled="true">@arunimamustyalaclinic</span>
         </div>
-        <div class="instagram-grid" aria-label="Instagram post placeholders">
-          <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future clinic Instagram post"></div>
-          <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future patient education Instagram post"></div>
-          <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future wellness Instagram post"></div>
-          <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future clinic update Instagram post"></div>
-          <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future homeopathy Instagram post"></div>
-          <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future health tip Instagram post"></div>
+        <div class="instagram-carousel" data-instagram-carousel>
+          <button class="instagram-arrow instagram-arrow--previous" type="button"
+            data-instagram-prev aria-label="Previous Instagram posts">←</button>
+          <div class="instagram-viewport">
+            <div class="instagram-grid" data-instagram-track aria-label="Instagram post placeholders">
+              <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future clinic Instagram post"><span>Clinic notes</span></div>
+              <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future patient education Instagram post"><span>Patient education</span></div>
+              <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future wellness Instagram post"><span>Wellness</span></div>
+              <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future clinic update Instagram post"><span>Clinic update</span></div>
+              <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future homeopathy Instagram post"><span>Homeopathy</span></div>
+              <div class="instagram-tile"><img src="assets/images/article-placeholder.svg" alt="Placeholder for a future health tip Instagram post"><span>Health tip</span></div>
+            </div>
+          </div>
+          <button class="instagram-arrow instagram-arrow--next" type="button"
+            data-instagram-next aria-label="Next Instagram posts">→</button>
         </div>
       </div>
     </section>
@@ -428,12 +514,14 @@
     <section class="site-section contact-cta" aria-labelledby="contact-cta-title">
       <div class="container contact-cta__inner">
         <div>
-          <p class="eyebrow">Prefer to speak first?</p>
+          <p class="eyebrow">Preferred: Start on WhatsApp</p>
           <h2 id="contact-cta-title">Tell Us What You’re Dealing With.</h2>
-          <p>Review the assessment process, program options, and demonstration appointment flow. Approved contact information will be added later.</p>
+          <p>Share a brief note and continue the conversation on WhatsApp. Please do not use WhatsApp for urgent or emergency medical concerns.</p>
         </div>
         <div class="contact-cta__actions">
-          <a class="button button--assessment button--hero" href="contact/">View contact page</a>
+          <a class="button button--assessment button--hero"
+            href="https://wa.me/916303196195?text=Hello%20Arunima%20Mustyala%2C%20I%20would%20like%20to%20know%20more%20about%20an%20assessment."
+            target="_blank" rel="noopener noreferrer">Start on WhatsApp</a>
           <a class="button button--outline" href="book-appointment/">Book assessment — ₹999</a>
         </div>
       </div>

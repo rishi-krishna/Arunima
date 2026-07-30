@@ -9,4 +9,7 @@ export const clinic = Object.freeze({
   rating: "4.9",
   reviewCount: "600+",
   assessmentPrice: "₹999",
+  whatsappNumber: "+91 63031 96195",
+  whatsappHref:
+    "https://wa.me/916303196195?text=Hello%20Arunima%20Mustyala%2C%20I%20would%20like%20to%20know%20more%20about%20an%20assessment.",
 });
