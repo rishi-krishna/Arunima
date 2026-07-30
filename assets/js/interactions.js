@@ -1,5 +1,5 @@
-import { clinic } from "./site-config.js?v=20260730c";
-import { primaryRoutes, treatmentRoutes } from "./components.js?v=20260730c";
+import { clinic } from "./site-config.js?v=20260730f";
+import { primaryRoutes, treatmentRoutes } from "./components.js?v=20260730f";
 
 export const storage = {
   get(key) {
@@ -263,20 +263,6 @@ export function initOverlays(root = document) {
   });
 }
 
-export function initCookieNotice(root = document) {
-  const notice = root.querySelector("[data-cookie-notice]");
-  if (!notice || notice.dataset.ready === "true") return;
-  notice.dataset.ready = "true";
-  const saved = storage.get("arunima-cookie-choice");
-  notice.hidden = saved === "accepted" || saved === "declined";
-  notice.querySelectorAll("[data-cookie-choice]").forEach((button) => {
-    button.addEventListener("click", () => {
-      storage.set("arunima-cookie-choice", button.dataset.cookieChoice);
-      notice.hidden = true;
-    });
-  });
-}
-
 export function initAssistant(root = document) {
   const button = root.querySelector("[data-assistant-toggle]");
   const body = root.querySelector("[data-assistant-body]");
@@ -502,7 +488,6 @@ export function initSiteInteractions(root = document) {
   initActiveRoutes(root);
   initNavigation(root);
   initOverlays(root);
-  initCookieNotice(root);
   initAssistant(root);
   initAccordions(root);
   initNewsletter(root);

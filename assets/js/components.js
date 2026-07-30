@@ -1,4 +1,4 @@
-import { clinic } from "./site-config.js?v=20260730c";
+import { clinic } from "./site-config.js?v=20260730f";
 
 const BaseElement = typeof HTMLElement === "undefined" ? class {} : HTMLElement;
 
@@ -89,7 +89,6 @@ class SiteHeader extends BaseElement {
             aria-label="Switch to dark theme" title="Switch theme">
             <span aria-hidden="true" data-theme-icon>☾</span>
           </button>
-          <a class="site-nav__account site-nav__link" href="/my-journey/">My Journey</a>
           <a class="site-nav__whatsapp" href="${clinic.whatsappHref}" target="_blank"
             rel="noopener noreferrer" aria-label="Chat with Dr. Arunima Mustyala on WhatsApp">
             WhatsApp
@@ -114,7 +113,6 @@ class SiteHeader extends BaseElement {
             ${links(primaryRoutes, "site-nav__link")}
             <p><strong>Treatments</strong></p>
             ${links(treatmentRoutes, "site-nav__link")}
-            <a class="site-nav__link" href="/my-journey/">My Journey</a>
             <a class="button button--whatsapp" href="${clinic.whatsappHref}" target="_blank"
               rel="noopener noreferrer" aria-label="Chat with Dr. Arunima Mustyala on WhatsApp">
               WhatsApp Dr. Arunima
@@ -191,30 +189,6 @@ class SiteFooter extends BaseElement {
   }
 }
 
-class CookieNotice extends BaseElement {
-  connectedCallback() {
-    if (this.dataset.ready === "true") return;
-    this.dataset.ready = "true";
-    this.innerHTML = `
-      <section class="cookie-notice" data-cookie-notice hidden
-        aria-label="Cookie preferences" aria-live="polite">
-        <div>
-          <strong>Your privacy choices</strong>
-          <p>We use essential browser storage for theme and accessibility preferences.
-            Optional preferences help remember your choices on this device.</p>
-        </div>
-        <div>
-          <button class="button button--outline" type="button" data-cookie-choice="declined">
-            Essential only
-          </button>
-          <button class="button button--primary" type="button" data-cookie-choice="accepted">
-            Accept
-          </button>
-        </div>
-      </section>`;
-  }
-}
-
 class CallbackPanel extends BaseElement {
   connectedCallback() {
     if (this.dataset.ready === "true") return;
@@ -287,7 +261,6 @@ class WhatsAppAction extends BaseElement {
 const componentDefinitions = [
   ["site-header", SiteHeader],
   ["site-footer", SiteFooter],
-  ["cookie-notice", CookieNotice],
   ["callback-panel", CallbackPanel],
   ["clinic-assistant", ClinicAssistant],
   ["whatsapp-action", WhatsAppAction],

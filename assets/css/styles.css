@@ -976,6 +976,10 @@ h4 {
   width: 100%;
 }
 
+[data-whatsapp-fallback][hidden] {
+  display: none;
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
   background: color-mix(in srgb, var(--primary) 6%, var(--background));
@@ -1045,23 +1049,6 @@ h4 {
   width: min(360px, 88%);
   height: 100%;
   padding: 24px;
-}
-
-.cookie-notice {
-  position: fixed;
-  z-index: 100;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px max(24px, calc((100vw - var(--container)) / 2));
-  border-top: 1px solid var(--border);
-  background: color-mix(in srgb, var(--background) 95%, transparent);
-  box-shadow: 0 -8px 20px rgb(0 0 0 / .06);
-  backdrop-filter: blur(12px);
 }
 
 .floating-action {
@@ -1152,6 +1139,11 @@ h4 {
 }
 
 @media (max-width: 640px) {
+  callback-panel,
+  clinic-assistant {
+    display: none;
+  }
+
   .container,
   .narrow,
   .article-body {
@@ -1221,12 +1213,6 @@ h4 {
 
   .instagram-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .cookie-notice {
-    align-items: stretch;
-    flex-direction: column;
-    padding: 16px;
   }
 
   .floating-action {
