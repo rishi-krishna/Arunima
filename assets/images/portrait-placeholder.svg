@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
+  <title id="title">Temporary practitioner portrait</title>
+  <desc id="desc">Dummy silhouette used until Arunima supplies a portrait photograph.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#eef3ee"/>
+      <stop offset="1" stop-color="#d6e1d6"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="0" x2="1">
+      <stop stop-color="#fafafa"/>
+      <stop offset="1" stop-color="#e8ece8"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="900" rx="24" fill="url(#bg)"/>
+  <circle cx="360" cy="284" r="128" fill="#d7b5a4"/>
+  <path d="M239 288c0-119 50-173 124-173 79 0 130 58 130 174-26-54-79-81-140-81-47 0-86 22-114 80Z" fill="#303a35"/>
+  <path d="M171 900V624c0-136 79-215 189-215s189 79 189 215v276Z" fill="url(#coat)"/>
+  <path d="m293 432 67 92 67-92 44 44-48 224H297l-48-224Z" fill="#f6f8f6"/>
+  <path d="M360 524v184" stroke="#c4cec5" stroke-width="4"/>
+  <rect x="203" y="770" width="314" height="58" rx="29" fill="#176d37" opacity=".92"/>
+  <text x="360" y="807" fill="#fafafa" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">DUMMY PORTRAIT</text>
+</svg>

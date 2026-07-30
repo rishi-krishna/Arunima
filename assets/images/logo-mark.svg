@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Arunima Mustyala Clinic botanical mark</title>
+  <desc id="desc">An original line drawing of two leaves forming a calm botanical symbol.</desc>
+  <g fill="none" stroke="#176d37" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6">
+    <path d="M32 53c0-16.2 1.4-28.9 8.8-39.6"/>
+    <path d="M34.1 36.3C19.8 35.4 12 27 12.8 14.1c14.3-.9 23.1 7.2 21.3 22.2Z"/>
+    <path d="M35.7 27.1c1.5-10 7.4-15.8 16.5-16.1.5 9.5-5 15.3-16.5 16.1Z"/>
+    <path d="M18.1 19.6c7.6 4.2 12 9.4 15.2 16.2"/>
+    <path d="M48.1 15.3c-5 3.5-8.5 7.2-11.8 11.8"/>
+  </g>
+</svg>

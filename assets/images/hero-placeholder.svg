@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 820" role="img" aria-labelledby="title desc">
+  <title id="title">Temporary healing-care background</title>
+  <desc id="desc">Soft neutral abstract shapes used until Arunima supplies a hero photograph.</desc>
+  <defs>
+    <radialGradient id="a" cx="58%" cy="32%" r="78%">
+      <stop stop-color="#fafafa"/>
+      <stop offset="1" stop-color="#d6e1d6"/>
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="34"/></filter>
+    <linearGradient id="veil" x1="0" x2="1">
+      <stop stop-color="#fafafa" stop-opacity=".92"/>
+      <stop offset=".5" stop-color="#fafafa" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#fafafa" stop-opacity=".18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="820" fill="url(#a)"/>
+  <ellipse cx="460" cy="630" rx="620" ry="190" fill="#ecd5c9" opacity=".72" filter="url(#blur)"/>
+  <ellipse cx="1220" cy="260" rx="380" ry="260" fill="#d6e1d6" opacity=".76" filter="url(#blur)"/>
+  <path d="M1040 830c65-250 178-427 397-607" fill="none" stroke="#97b39e" stroke-opacity=".24" stroke-width="7"/>
+  <path d="M1180 522c-1-103 53-176 158-210-2 112-59 185-158 210Zm-52 112c-93-35-139-101-136-199 103 32 150 101 136 199Z" fill="#97b39e" opacity=".13"/>
+  <rect width="1600" height="820" fill="url(#veil)"/>
+</svg>
