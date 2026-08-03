@@ -1,7 +1,6 @@
 export const clinic = Object.freeze({
   practitioner: "Dr. Arunima Mustyala",
   clinicName: "Dr. Arunima Mustyala",
-  credentials: "BHMS | PG Hom (London) | Fellowship (Germany)",
   registration: "PR-3641/H/2025",
   board: "Telangana Board",
   experience: "15+ Years Experience",

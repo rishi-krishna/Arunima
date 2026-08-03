@@ -1,5 +1,5 @@
-import { clinic } from "./site-config.js?v=20260803a";
-import { primaryRoutes, treatmentRoutes } from "./components.js?v=20260803a";
+import { clinic } from "./site-config.js?v=20260803b";
+import { primaryRoutes, treatmentRoutes } from "./components.js?v=20260803b";
 
 export const storage = {
   get(key) {
