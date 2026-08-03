@@ -1,4 +1,4 @@
-import { clinic } from "./site-config.js?v=20260730f";
+import { clinic } from "./site-config.js?v=20260803a";
 
 const BaseElement = typeof HTMLElement === "undefined" ? class {} : HTMLElement;
 
@@ -135,8 +135,8 @@ class SiteFooter extends BaseElement {
         <div class="container site-footer__main">
           <section aria-labelledby="footer-clinic">
             <h3 id="footer-clinic">${escapeHtml(clinic.clinicName)}</h3>
-            <p>Dr. Arunima's personal homeopathic practice, built around careful assessment,
-              structured programs, and measurable follow-up.</p>
+            <p>Dr. Arunima's homeopathic practice is built around careful assessment,
+              individualized guidance, and practical follow-up.</p>
             <p><strong>${escapeHtml(clinic.practitioner)}</strong><br>
               ${escapeHtml(clinic.credentials)}<br>
               Registration ${escapeHtml(clinic.registration)}, ${escapeHtml(clinic.board)}</p>
