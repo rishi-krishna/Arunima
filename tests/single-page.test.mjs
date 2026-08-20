@@ -29,6 +29,7 @@ test("homepage contains the registration-free WhatsApp booking form", () => {
 
 test("homepage has no placeholder images or obsolete page links", () => {
   assert.doesNotMatch(index, /<img[^>]+placeholder\.svg/i);
+  assert.doesNotMatch(index, /bio-portrait--empty|article-card__media--empty|instagram-tile__media/);
   for (const route of ["about/", "book-appointment/", "blog/", "contact/", "patient-stories/", "pricing/", "research/", "treatments/"]) {
     assert.doesNotMatch(index, new RegExp(`href=["']${route}`, "i"));
   }

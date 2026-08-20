@@ -1,4 +1,4 @@
-import { clinic } from "./site-config.js?v=20260820c";
+import { clinic } from "./site-config.js?v=20260820d";
 
 export const storage = {
   get(key) {
@@ -78,7 +78,7 @@ export function initMotion(root = document) {
     ...root.querySelectorAll(
       "main > section:not(.hero) .section-heading, .process-card, .bio-layout > *, .experience-summary, .review-toolbar, " +
         ".review-carousel, .review-callouts, .faq-layout > *, .article-card, " +
-        ".instagram-heading, .instagram-carousel, .contact-cta__inner",
+        ".instagram-heading, .contact-cta__inner",
     ),
   ];
 
@@ -182,43 +182,11 @@ export function initReviewCarousel(root = document) {
   update();
 }
 
-export function initInstagramCarousel(root = document) {
-  const track = root.querySelector("[data-instagram-track]");
-  const previous = root.querySelector("[data-instagram-prev]");
-  const next = root.querySelector("[data-instagram-next]");
-  if (!track || !previous || !next || track.dataset.ready === "true") return;
-  track.dataset.ready = "true";
-  let index = 0;
-
-  const update = () => {
-    const cards = [...track.children];
-    const visibleCount = window.innerWidth <= 640 ? 1 : window.innerWidth <= 860 ? 2 : 3;
-    const maximum = Math.max(0, cards.length - visibleCount);
-    index = Math.min(index, maximum);
-    const width = cards[0]?.getBoundingClientRect().width || 0;
-    track.style.transform = `translateX(-${index * (width + 18)}px)`;
-    previous.disabled = index === 0;
-    next.disabled = index === maximum;
-  };
-
-  previous.addEventListener("click", () => {
-    index = Math.max(0, index - 1);
-    update();
-  });
-  next.addEventListener("click", () => {
-    index += 1;
-    update();
-  });
-  window.addEventListener("resize", update);
-  update();
-}
-
 export function initSiteInteractions(root = document) {
   normalizeInternalUrls(root);
   populateClinicFields(root);
   initAccordions(root);
   initReviewCarousel(root);
-  initInstagramCarousel(root);
   initMotion(root);
   root.querySelectorAll("[data-theme-toggle]").forEach((button) => {
     if (button.dataset.ready === "true") return;
