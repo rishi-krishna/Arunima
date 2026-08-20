@@ -1,4 +1,4 @@
-import { clinic } from "./site-config.js?v=20260820e";
+import { clinic } from "./site-config.js?v=20260820g";
 
 export const storage = {
   get(key) {
@@ -77,7 +77,7 @@ export function initMotion(root = document) {
   const revealGroups = [
     ...root.querySelectorAll(
       "main > section:not(.hero) .section-heading, .process-card, .bio-layout > *, .experience-summary, .review-toolbar, " +
-        ".review-carousel, .review-callouts, .faq-layout > *, .article-card, .instagram-heading",
+        ".review-carousel, .faq-layout > *, .article-card, .instagram-heading",
     ),
   ];
 
