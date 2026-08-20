@@ -1,6 +1,6 @@
-import "./components.js?v=20260820b";
-import { initForms } from "./forms.js";
-import { initSiteInteractions, initTheme } from "./interactions.js?v=20260820b";
+import "./components.js?v=20260820c";
+import { initForms } from "./forms.js?v=20260820c";
+import { initSiteInteractions, initTheme } from "./interactions.js?v=20260820c";
 
 function ensureSharedActions() {
   if (!document.querySelector("whatsapp-action")) {

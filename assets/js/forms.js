@@ -1,4 +1,4 @@
-import { clinic } from "./site-config.js?v=20260820b";
+import { clinic } from "./site-config.js?v=20260820c";
 
 export function buildWhatsAppBookingUrl(values) {
   const lines = [
