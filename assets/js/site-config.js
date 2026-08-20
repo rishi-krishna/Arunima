@@ -3,8 +3,6 @@ export const clinic = Object.freeze({
   clinicName: "Dr. Arunima Mustyala",
   registration: "PR-3641/H/2025",
   board: "Telangana Board",
-  experience: "15+ Years Experience",
-  assessmentPrice: "₹999",
   whatsappNumber: "+91 63031 96195",
   whatsappBaseHref: "https://wa.me/916303196195",
   whatsappHref:

@@ -1,5 +1,5 @@
-import { clinic } from "./site-config.js?v=20260803b";
-import { primaryRoutes, treatmentRoutes } from "./components.js?v=20260803b";
+import { clinic } from "./site-config.js?v=20260820a";
+import { primaryRoutes, treatmentRoutes } from "./components.js?v=20260820a";
 
 export const storage = {
   get(key) {
@@ -309,8 +309,7 @@ export function initMotion(root = document) {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealGroups = [
     ...root.querySelectorAll(
-      "main > section:not(.hero) .section-heading, .process-card, .protocol-tabs, " +
-        ".protocol-stack, .bio-layout > *, .experience-summary, .review-toolbar, " +
+      "main > section:not(.hero) .section-heading, .process-card, .bio-layout > *, .experience-summary, .review-toolbar, " +
         ".review-carousel, .review-callouts, .faq-layout > *, .article-card, " +
         ".instagram-heading, .instagram-carousel, .contact-cta__inner",
     ),
@@ -361,41 +360,6 @@ export function initMotion(root = document) {
     updateNav();
     window.addEventListener("scroll", updateNav, { passive: true });
   }
-}
-
-export function initProtocolTabs(root = document) {
-  const tabs = [...root.querySelectorAll("[data-protocol-tab]")];
-  const panels = [...root.querySelectorAll("[data-protocol-panel]")];
-  if (!tabs.length || tabs.some((tab) => tab.dataset.ready === "true")) return;
-
-  const activate = (tab, focus = false) => {
-    tabs.forEach((candidate) => {
-      const selected = candidate === tab;
-      candidate.setAttribute("aria-selected", String(selected));
-      candidate.tabIndex = selected ? 0 : -1;
-      if (selected && focus) candidate.focus();
-    });
-    panels.forEach((panel) => {
-      panel.hidden = panel.id !== tab.dataset.protocolTab;
-    });
-  };
-
-  tabs.forEach((tab, index) => {
-    tab.dataset.ready = "true";
-    tab.addEventListener("click", () => activate(tab));
-    tab.addEventListener("keydown", (event) => {
-      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
-      event.preventDefault();
-      let nextIndex =
-        event.key === "Home"
-          ? 0
-          : event.key === "End"
-            ? tabs.length - 1
-            : (index + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
-      activate(tabs[nextIndex], true);
-    });
-  });
-  activate(tabs.find((tab) => tab.getAttribute("aria-selected") === "true") || tabs[0]);
 }
 
 export function initReviewCarousel(root = document) {
@@ -491,7 +455,6 @@ export function initSiteInteractions(root = document) {
   initAssistant(root);
   initAccordions(root);
   initNewsletter(root);
-  initProtocolTabs(root);
   initReviewCarousel(root);
   initInstagramCarousel(root);
   initMotion(root);

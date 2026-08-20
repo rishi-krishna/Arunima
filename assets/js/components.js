@@ -1,4 +1,4 @@
-import { clinic } from "./site-config.js?v=20260803b";
+import { clinic } from "./site-config.js?v=20260820a";
 
 const BaseElement = typeof HTMLElement === "undefined" ? class {} : HTMLElement;
 
@@ -230,7 +230,7 @@ class ClinicAssistant extends BaseElement {
           <p>Hello. Choose a care topic or request a consultation with Dr. Arunima.</p>
           <div class="site-footer__links">
             <a href="/treatments/">Explore treatments</a>
-            <a href="/pricing/">Review program pricing</a>
+            <a href="/pricing/">Consultation details</a>
             <a href="/book-appointment/">Book Consultation</a>
             <a href="${clinic.whatsappHref}" target="_blank" rel="noopener noreferrer">
               WhatsApp Dr. Arunima
