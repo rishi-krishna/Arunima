@@ -334,6 +334,75 @@
         </div>
       </div>
     </section>
+
+    <section class="site-section site-section--sage booking-section" id="consultation-booking"
+      aria-labelledby="booking-form-title">
+      <div class="container booking-section__inner">
+        <form class="surface form-card" data-static-form>
+          <div class="section-heading">
+            <p class="eyebrow">Appointment request</p>
+            <h2 id="booking-form-title">Book a Consultation</h2>
+            <p>Choose what works for you. Fields marked with an asterisk are required.</p>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="appointment-type">Appointment type *</label>
+              <select id="appointment-type" name="appointmentType" required>
+                <option value="">Choose an option</option>
+                <option>In-clinic consultation</option>
+                <option>Online video consultation</option>
+                <option>Follow-up consultation</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="appointment-condition">Primary concern *</label>
+              <select id="appointment-condition" name="condition" required>
+                <option value="">Choose a concern</option>
+                <option>Skin health</option>
+                <option>PCOD or fibroids</option>
+                <option>Adenoids or child respiratory health</option>
+                <option>Allergies</option>
+                <option>Hair loss</option>
+                <option>Thyroid health</option>
+                <option>Another concern</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="preferred-date">Preferred date *</label>
+              <input id="preferred-date" name="preferredDate" type="date" required>
+            </div>
+            <div class="field">
+              <label for="preferred-time">Preferred time *</label>
+              <select id="preferred-time" name="preferredTime" required>
+                <option value="">Choose a time window</option>
+                <option>10:00 AM–1:00 PM</option>
+                <option>1:00 PM–4:00 PM</option>
+                <option>4:00 PM–7:00 PM</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="booking-name">Full name *</label>
+              <input id="booking-name" name="name" type="text" autocomplete="name" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="booking-note">Brief note (optional)</label>
+            <textarea id="booking-note" name="note"
+              placeholder="Do not include urgent, highly sensitive, or emergency information."></textarea>
+          </div>
+          <label class="consent-row">
+            <input name="consent" type="checkbox" required>
+            <span>I understand this is an appointment request and Dr. Arunima will confirm availability separately. *</span>
+          </label>
+          <button class="button button--assessment" type="submit">Continue to WhatsApp</button>
+          <p class="form-status" data-form-status aria-live="polite"></p>
+          <p><a class="button button--whatsapp" data-whatsapp-fallback
+            href="https://wa.me/916303196195" target="_blank"
+            rel="noopener noreferrer" hidden>Open WhatsApp manually</a></p>
+          <p class="muted">Please do not share urgent or highly sensitive medical information through WhatsApp. This service is not monitored for emergencies.</p>
+        </form>
+      </div>
+    </section>
   </main>
 
   <site-footer></site-footer>

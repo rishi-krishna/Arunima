@@ -962,6 +962,23 @@ h4 {
   font-weight: 600;
 }
 
+.booking-section {
+  scroll-margin-top: 88px;
+}
+
+.booking-section__inner {
+  width: min(820px, calc(100% - 40px));
+}
+
+.booking-section .form-card {
+  display: grid;
+  gap: 18px;
+}
+
+.booking-section .button[type="submit"] {
+  width: 100%;
+}
+
 .consent-row {
   display: grid;
   grid-template-columns: auto 1fr;
