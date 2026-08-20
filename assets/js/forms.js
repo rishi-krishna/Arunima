@@ -1,8 +1,8 @@
-import { clinic } from "./site-config.js?v=20260820a";
+import { clinic } from "./site-config.js?v=20260820b";
 
 export function buildWhatsAppBookingUrl(values) {
   const lines = [
-    "Hello Dr. Arunima Mustyala, I would like to request a consultation.",
+    "Hello Dr. Arunima Musthyala, I would like to request a consultation.",
     "",
     `Name: ${values.name}`,
     `Consultation: ${values.appointmentType}`,
