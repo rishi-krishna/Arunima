@@ -1,4 +1,4 @@
-# Arunima Mustyala
+# Arunima Musthyala
 
 Basic static website built with:
 
