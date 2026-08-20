@@ -733,8 +733,7 @@ h4 {
   text-align: center;
 }
 
-.instagram-heading,
-.contact-cta__inner {
+.instagram-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -749,40 +748,9 @@ h4 {
   margin-bottom: 0;
 }
 
-.instagram-heading h2,
-.contact-cta h2 {
+.instagram-heading h2 {
   margin-bottom: 10px;
   font-size: clamp(30px, 3.5vw, 46px);
-}
-
-.contact-cta {
-  background: var(--primary);
-  color: var(--primary-foreground);
-}
-
-.contact-cta .eyebrow,
-.contact-cta .muted {
-  color: inherit;
-}
-
-.contact-cta__inner > div:first-child {
-  max-width: 760px;
-}
-
-.contact-cta__details {
-  margin: 24px 0 0;
-  opacity: .82;
-}
-
-.contact-cta__actions {
-  display: grid;
-  min-width: 280px;
-  gap: 10px;
-}
-
-.contact-cta .button--outline {
-  border-color: rgb(255 255 255 / .55);
-  color: var(--primary-foreground);
 }
 
 .article-meta,
@@ -984,14 +952,6 @@ h4 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .contact-cta__inner {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .contact-cta__actions {
-    min-width: 0;
-  }
 }
 
 @media (max-width: 640px) {
@@ -1433,32 +1393,6 @@ main > .site-section[aria-labelledby="protocols-title"] {
   padding: 20px;
 }
 
-.contact-cta {
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle at 75% 35%, rgb(214 225 214 / .72), transparent 35%),
-    color-mix(in srgb, var(--primary) 5%, var(--background));
-  color: var(--foreground);
-}
-
-.contact-cta__inner {
-  padding: 72px;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  background: color-mix(in srgb, var(--background) 88%, transparent);
-  box-shadow: 0 24px 70px rgb(23 109 55 / .1);
-}
-
-.contact-cta .eyebrow {
-  color: var(--primary);
-}
-
-.contact-cta .button--outline {
-  border-color: color-mix(in srgb, var(--primary) 45%, transparent);
-  color: var(--primary);
-}
-
 .whatsapp-action {
   position: fixed;
   z-index: 88;
@@ -1500,10 +1434,6 @@ main > .site-section[aria-labelledby="protocols-title"] {
     flex-basis: calc((100% - 24px) / 2);
   }
 
-  .contact-cta__inner {
-    min-height: 0;
-    padding: 44px;
-  }
 }
 
 @media (max-width: 640px) {
@@ -1511,8 +1441,7 @@ main > .site-section[aria-labelledby="protocols-title"] {
     min-height: calc(100svh - 65px);
   }
 
-  .experiences-section,
-  .contact-cta {
+  .experiences-section {
     min-height: 0;
   }
 
@@ -1528,10 +1457,6 @@ main > .site-section[aria-labelledby="protocols-title"] {
 
   .review-track .testimonial {
     flex-basis: 100%;
-  }
-
-  .contact-cta__inner {
-    padding: 28px;
   }
 
   .whatsapp-action {
