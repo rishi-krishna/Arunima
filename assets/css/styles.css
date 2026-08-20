@@ -1220,7 +1220,12 @@ main > .site-section[aria-labelledby="protocols-title"] {
 }
 
 .experiences-section {
+  padding-bottom: 0;
   background: color-mix(in srgb, var(--muted) 30%, transparent);
+}
+
+.experiences-section + .site-section--primary-tint {
+  padding-top: 20px;
 }
 
 .experience-summary {
