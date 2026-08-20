@@ -2,36 +2,6 @@ import { clinic } from "./site-config.js?v=20260820b";
 
 const BaseElement = typeof HTMLElement === "undefined" ? class {} : HTMLElement;
 
-export const primaryRoutes = Object.freeze([
-  ["/", "Home"],
-  ["/about/", "About"],
-  ["/treatments/", "Treatments"],
-  ["/research/", "Research"],
-  ["/pricing/", "Pricing"],
-  ["/blog/", "Blog"],
-  ["/patient-stories/", "Patient Stories"],
-  ["/contact/", "Contact"],
-]);
-
-export const treatmentRoutes = Object.freeze([
-  ["/skin-treatment/", "Skin"],
-  ["/pcod-treatment/", "PCOD / Fibroids"],
-  ["/adenoid-treatment/", "Adenoids"],
-  ["/allergy-treatment/", "Allergies"],
-  ["/hair-loss-treatment/", "Hair Loss"],
-  ["/thyroid-treatment/", "Thyroid"],
-]);
-
-const locationRoutes = Object.freeze([
-  ["/locations/kphb/", "KPHB"],
-  ["/locations/kukatpally/", "Kukatpally"],
-  ["/locations/miyapur/", "Miyapur"],
-  ["/locations/madhapur/", "Madhapur"],
-  ["/locations/kondapur/", "Kondapur"],
-  ["/locations/gachibowli/", "Gachibowli"],
-  ["/locations/moosapet/", "Moosapet"],
-]);
-
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -41,86 +11,33 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function links(routes, className = "") {
-  return routes
-    .map(
-      ([href, label]) =>
-        `<a class="${className}" href="${href}" data-route="${href}">${escapeHtml(label)}</a>`,
-    )
-    .join("");
-}
-
 class SiteHeader extends BaseElement {
   connectedCallback() {
     if (this.dataset.ready === "true") return;
     this.dataset.ready = "true";
 
-    const desktopLinks = primaryRoutes
-      .map(([href, label]) => {
-        if (href !== "/treatments/") {
-          return `<a class="site-nav__link" href="${href}" data-route="${href}">${label}</a>`;
-        }
-
-        return `
-          <div class="nav-menu" data-nav-menu>
-            <button class="nav-menu__trigger" type="button" aria-expanded="false"
-              aria-controls="treatments-menu" data-menu-toggle data-route="${href}">
-              Treatments <span aria-hidden="true">⌄</span>
-            </button>
-            <div class="nav-menu__panel" id="treatments-menu" aria-label="Treatments">
-              <a href="/treatments/" data-route="/treatments/">All Treatments</a>
-              ${links(treatmentRoutes)}
-            </div>
-          </div>`;
-      })
-      .join("");
-
     this.innerHTML = `
       <header class="site-nav">
         <div class="container site-nav__inner">
-          <a class="site-brand" href="/" aria-label="${escapeHtml(clinic.clinicName)} home">
+          <a class="site-brand" href="#main-content" aria-label="${escapeHtml(clinic.clinicName)} home">
             <img src="/assets/images/logo-mark.svg" alt="" width="38" height="38">
             <span>${escapeHtml(clinic.practitioner)}</span>
           </a>
-          <nav class="site-nav__links" aria-label="Primary navigation">
-            ${desktopLinks}
-          </nav>
-          <button class="theme-toggle" type="button" data-theme-toggle
-            aria-label="Switch to dark theme" title="Switch theme">
-            <span aria-hidden="true" data-theme-icon>☾</span>
-          </button>
-          <a class="site-nav__whatsapp" href="${clinic.whatsappHref}" target="_blank"
-            rel="noopener noreferrer" aria-label="Chat with Dr. Arunima Musthyala on WhatsApp">
-            WhatsApp
-          </a>
-          <a class="button button--primary site-nav__account" href="/book-appointment/">
-            Book Consultation
-          </a>
-          <button class="mobile-toggle" type="button" data-mobile-toggle
-            aria-expanded="false" aria-controls="mobile-navigation"
-            aria-label="Open navigation">
-            <span aria-hidden="true">☰</span>
-          </button>
-        </div>
-      </header>
-      <div class="mobile-drawer" id="mobile-navigation" data-mobile-drawer
-        data-open="false" aria-hidden="true">
-        <nav class="mobile-drawer__panel" aria-label="Mobile navigation" tabindex="-1">
-          <button class="theme-toggle" type="button" data-mobile-close aria-label="Close navigation">
-            <span aria-hidden="true">✕</span>
-          </button>
-          <div class="site-footer__links">
-            ${links(primaryRoutes, "site-nav__link")}
-            <p><strong>Treatments</strong></p>
-            ${links(treatmentRoutes, "site-nav__link")}
-            <a class="button button--whatsapp" href="${clinic.whatsappHref}" target="_blank"
+          <div class="site-nav__actions">
+            <button class="theme-toggle" type="button" data-theme-toggle
+              aria-label="Switch to dark theme" title="Switch theme">
+              <span aria-hidden="true" data-theme-icon>☾</span>
+            </button>
+            <a class="site-nav__whatsapp" href="${clinic.whatsappHref}" target="_blank"
               rel="noopener noreferrer" aria-label="Chat with Dr. Arunima Musthyala on WhatsApp">
-              WhatsApp Dr. Arunima
+              WhatsApp
             </a>
-            <a class="button button--primary" href="/book-appointment/">Book Consultation</a>
+            <a class="button button--primary site-nav__account" href="#consultation-booking">
+              Book Consultation
+            </a>
           </div>
-        </nav>
-      </div>`;
+        </div>
+      </header>`;
   }
 }
 
@@ -132,113 +49,13 @@ class SiteFooter extends BaseElement {
 
     this.innerHTML = `
       <footer class="site-footer">
-        <div class="container site-footer__main">
-          <section aria-labelledby="footer-clinic">
-            <h3 id="footer-clinic">${escapeHtml(clinic.clinicName)}</h3>
-            <p>Dr. Arunima's homeopathic practice is built around careful assessment,
-              individualized guidance, and practical follow-up.</p>
-            <p><strong>${escapeHtml(clinic.practitioner)}</strong><br>
-              Registration ${escapeHtml(clinic.registration)}, ${escapeHtml(clinic.board)}</p>
-          </section>
-          <nav aria-labelledby="footer-quick-links">
-            <h4 id="footer-quick-links">Quick links</h4>
-            <div class="site-footer__links">
-              ${links([
-                ["/about/", "About"],
-                ["/approach/", "Our Approach"],
-                ["/why-choose-us/", "Why Choose Us"],
-                ["/treatments/", "Treatments"],
-                ["/pricing/", "Pricing"],
-                ["/research/", "Research"],
-                ["/contact/", "Contact"],
-              ])}
-            </div>
-          </nav>
-          <nav aria-labelledby="footer-locations">
-            <h4 id="footer-locations">Service areas</h4>
-            <div class="site-footer__links">
-              <a href="/locations/">All locations</a>
-              ${links(locationRoutes)}
-            </div>
-          </nav>
-          <section aria-labelledby="footer-visit">
-            <h4 id="footer-visit">Hours and updates</h4>
-            <p><strong>Hours</strong><br>Monday–Saturday: 10:00 AM–7:00 PM<br>
-              Sunday: By appointment</p>
-            <form data-newsletter-form novalidate>
-              <label for="footer-email">Health notes by email</label>
-              <input id="footer-email" name="email" type="email" autocomplete="email"
-                placeholder="you@example.com" required>
-              <button class="button button--primary" type="submit">Subscribe</button>
-              <p class="form-status" data-newsletter-status aria-live="polite"></p>
-            </form>
-          </section>
-        </div>
-        <div class="container site-footer__legal">
-          <p>This website does not provide emergency care. For a medical emergency, call
-            local emergency services or go to the nearest hospital.</p>
-          <p>
-            <a href="/privacy-policy/">Privacy Policy</a> ·
-            <a href="/terms-of-service/">Terms of Service</a> ·
-            <a href="/teleconsultation-policy/">Teleconsultation Policy</a>
-          </p>
+        <div class="container site-footer__minimal">
+          <p><strong>${escapeHtml(clinic.clinicName)}</strong></p>
+          <p>This website does not provide emergency care. For a medical emergency,
+            contact local emergency services or go to the nearest hospital.</p>
           <p>© ${year} ${escapeHtml(clinic.clinicName)}. All rights reserved.</p>
         </div>
       </footer>`;
-  }
-}
-
-class CallbackPanel extends BaseElement {
-  connectedCallback() {
-    if (this.dataset.ready === "true") return;
-    this.dataset.ready = "true";
-    this.innerHTML = `
-      <button class="button button--primary floating-action" type="button"
-        data-overlay-trigger="callback-dialog" aria-haspopup="dialog" aria-expanded="false">
-        Request consultation
-      </button>
-      <div class="overlay" id="callback-dialog" data-overlay data-open="false"
-        aria-hidden="true">
-        <section class="overlay__panel" role="dialog" aria-modal="true"
-          aria-labelledby="callback-title" tabindex="-1">
-          <button class="theme-toggle" type="button" data-overlay-close
-            aria-label="Close callback panel">✕</button>
-          <h2 id="callback-title">Request a consultation</h2>
-          <p>Share your preferred consultation type and time. Your request will be prepared
-            as a WhatsApp message for Dr. Arunima to review.</p>
-          <p><a class="button button--outline" href="/book-appointment/">
-            Book Consultation
-          </a></p>
-        </section>
-      </div>`;
-  }
-}
-
-class ClinicAssistant extends BaseElement {
-  connectedCallback() {
-    if (this.dataset.ready === "true") return;
-    this.dataset.ready = "true";
-    this.innerHTML = `
-      <aside class="assistant-card" aria-label="Dr. Arunima's consultation assistant">
-        <button class="assistant-card__header" type="button" data-assistant-toggle
-          aria-expanded="false" aria-controls="clinic-assistant-body"
-          style="width:100%;display:flex;align-items:center;justify-content:space-between;border:0;cursor:pointer;text-align:left">
-          <strong>Dr. Arunima's assistant</strong>
-          <span aria-hidden="true" data-assistant-icon>＋</span>
-        </button>
-        <div class="assistant-card__body" id="clinic-assistant-body" data-assistant-body hidden>
-          <p>Hello. Choose a care topic or request a consultation with Dr. Arunima.</p>
-          <div class="site-footer__links">
-            <a href="/treatments/">Explore treatments</a>
-            <a href="/pricing/">Consultation details</a>
-            <a href="/book-appointment/">Book Consultation</a>
-            <a href="${clinic.whatsappHref}" target="_blank" rel="noopener noreferrer">
-              WhatsApp Dr. Arunima
-            </a>
-          </div>
-          <p><small>This assistant provides navigation only, not medical advice.</small></p>
-        </div>
-      </aside>`;
   }
 }
 
@@ -260,8 +77,6 @@ class WhatsAppAction extends BaseElement {
 const componentDefinitions = [
   ["site-header", SiteHeader],
   ["site-footer", SiteFooter],
-  ["callback-panel", CallbackPanel],
-  ["clinic-assistant", ClinicAssistant],
   ["whatsapp-action", WhatsAppAction],
 ];
 
