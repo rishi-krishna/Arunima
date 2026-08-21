@@ -12,6 +12,7 @@ const styles = readFileSync(join(root, "assets/css/styles.css"), "utf8");
 const main = readFileSync(join(root, "assets/js/main.js"), "utf8");
 const forms = readFileSync(join(root, "assets/js/forms.js"), "utf8");
 const interactions = readFileSync(join(root, "assets/js/interactions.js"), "utf8");
+const siteConfig = readFileSync(join(root, "assets/js/site-config.js"), "utf8");
 
 function htmlFiles(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -30,6 +31,14 @@ test("homepage contains the registration-free WhatsApp booking form", () => {
   assert.match(index, /data-static-form/);
   assert.match(index, /Continue to WhatsApp/);
   assert.doesNotMatch(booking, /register|create an account|log[ -]?in/i);
+});
+
+test("all live WhatsApp actions use the temporary destination", () => {
+  assert.doesNotMatch(index, /wa\.me\/916303196195/);
+  assert.doesNotMatch(siteConfig, /916303196195|\+91 63031 96195/);
+  assert.match(index, /wa\.me\/919999999999/);
+  assert.match(siteConfig, /whatsappNumber:\s*"\+91 99999 99999"/);
+  assert.match(siteConfig, /whatsappBaseHref:\s*"https:\/\/wa\.me\/919999999999"/);
 });
 
 test("homepage has no placeholder images or obsolete page links", () => {
@@ -89,12 +98,12 @@ test("site uses the approved light Nirmaya palette", () => {
 test("production entry assets share the current cache version", () => {
   const sources = [index, main, components, forms, interactions];
   for (const source of sources) {
-    assert.doesNotMatch(source, /20260821[bcde]/);
+    assert.doesNotMatch(source, /20260821[bcdef]/);
   }
-  assert.match(index, /styles\.css\?v=20260821f/);
-  assert.match(index, /main\.js\?v=20260821f/);
+  assert.match(index, /styles\.css\?v=20260821g/);
+  assert.match(index, /main\.js\?v=20260821g/);
   for (const source of [main, components, forms, interactions]) {
-    assert.match(source, /20260821f/);
+    assert.match(source, /20260821g/);
   }
 });
 

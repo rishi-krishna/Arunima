@@ -1,4 +1,4 @@
-import { clinic } from "./site-config.js?v=20260821f";
+import { clinic } from "./site-config.js?v=20260821g";
 
 const BaseElement = typeof HTMLElement === "undefined" ? class {} : HTMLElement;
 
