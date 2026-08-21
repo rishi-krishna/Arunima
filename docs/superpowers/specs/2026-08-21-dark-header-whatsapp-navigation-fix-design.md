@@ -18,7 +18,7 @@ Correct two focused issues in the deployed single-page website without changing 
 ## WhatsApp Submission Navigation
 
 - Preserve current form validation and the existing prefilled WhatsApp message.
-- Preserve the destination number `+91 63031 96195`.
+- Preserve the destination number `+91 99999 99999`.
 - Replace `window.open(bookingUrl, "_blank", ...)` with same-page navigation using `window.location.assign(bookingUrl)`.
 - Do not create a new browser tab or window when the user selects `Continue to WhatsApp`.
 - Keep the manual WhatsApp fallback link populated and visible after a valid submission.
@@ -29,7 +29,7 @@ Correct two focused issues in the deployed single-page website without changing 
 - Add a structural regression assertion for the softened header-foreground token and its use by `.site-brand`.
 - Add a structural regression assertion that the form uses `window.location.assign(bookingUrl)` and contains no `window.open(bookingUrl, ...)` call.
 - Verify invalid submission does not navigate.
-- Verify valid submission attempts same-page navigation to `https://wa.me/916303196195?text=...` with all completed fields.
+- Verify valid submission attempts same-page navigation to `https://wa.me/919999999999?text=...` with all completed fields.
 - Verify desktop and mobile layouts, both themes, console output, and page errors.
 
 ## Out of Scope

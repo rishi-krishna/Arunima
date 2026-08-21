@@ -27,9 +27,10 @@ const siteConfig = readFileSync(join(root, "assets/js/site-config.js"), "utf8");
 
 ```js
 test("all live WhatsApp actions use the temporary destination", () => {
-  assert.doesNotMatch(index, /wa\.me\/916303196195/);
-  assert.doesNotMatch(siteConfig, /916303196195|\+91 63031 96195/);
-  assert.match(index, /wa\.me\/919999999999/);
+  const whatsappNumbers = [...`${index}\n${siteConfig}`.matchAll(/wa\.me\/(\d+)/g)]
+    .map((match) => match[1]);
+  assert.ok(whatsappNumbers.length >= 3);
+  assert.deepEqual(new Set(whatsappNumbers), new Set(["919999999999"]));
   assert.match(siteConfig, /whatsappNumber:\s*"\+91 99999 99999"/);
   assert.match(siteConfig, /whatsappBaseHref:\s*"https:\/\/wa\.me\/919999999999"/);
 });
@@ -43,7 +44,7 @@ Run:
 node --test tests/single-page.test.mjs
 ```
 
-Expected: the new destination test fails because `assets/js/site-config.js` still contains `916303196195`.
+Expected: the new destination test fails because `assets/js/site-config.js` still contains the superseded WhatsApp destination.
 
 ### Task 2: Update the shared WhatsApp configuration
 
@@ -73,15 +74,15 @@ node --test tests/single-page.test.mjs
 
 Expected: every command exits successfully and the complete test suite passes.
 
-- [ ] **Step 3: Confirm no old live destination remains**
+- [ ] **Step 3: Confirm every live destination is current**
 
 Run:
 
 ```powershell
-rg -n "916303196195|63031 96195" index.html assets tests
+rg -n "wa\.me/[0-9]+" index.html assets tests
 ```
 
-Expected: no matches.
+Expected: every matched URL uses `919999999999`.
 
 - [ ] **Step 4: Commit and push only the intended files**
 
@@ -92,4 +93,3 @@ git push origin main
 ```
 
 Expected: `main` is pushed successfully without adding the unrelated local logo source files.
-

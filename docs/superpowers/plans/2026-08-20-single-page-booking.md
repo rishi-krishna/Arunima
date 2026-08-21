@@ -400,7 +400,7 @@ Insert:
       <button class="button button--assessment" type="submit">Continue to WhatsApp</button>
       <p class="form-status" data-form-status aria-live="polite"></p>
       <p><a class="button button--whatsapp" data-whatsapp-fallback
-        href="https://wa.me/916303196195" target="_blank"
+        href="https://wa.me/919999999999" target="_blank"
         rel="noopener noreferrer" hidden>Open WhatsApp manually</a></p>
       <p class="muted">Please do not share urgent or highly sensitive medical information through WhatsApp. This service is not monitored for emergencies.</p>
     </form>
@@ -612,7 +612,7 @@ In the same browser run:
 - submit the empty form and confirm the browser blocks it;
 - fill every required field and consent;
 - intercept `window.open` or listen for the popup;
-- assert the resulting URL begins with `https://wa.me/916303196195?text=` and includes the entered name, appointment type, concern, date, and time.
+- assert the resulting URL begins with `https://wa.me/919999999999?text=` and includes the entered name, appointment type, concern, date, and time.
 
 Expected: invalid submission stays on the form; valid submission prepares the correct WhatsApp request.
 

@@ -72,7 +72,7 @@ Exact values may be adjusted slightly during implementation to meet accessible c
 
 - Preserve the consultation form at the bottom of the homepage.
 - Preserve HTML validation and the current WhatsApp submission workflow.
-- Preserve the configured WhatsApp destination `+91 63031 96195`.
+- Preserve the configured WhatsApp destination `+91 99999 99999`.
 - Restyle form fields, focus states, buttons, and validation presentation to match the new palette.
 - Keep the floating WhatsApp control visible, accessible, and non-overlapping on mobile.
 
@@ -106,7 +106,7 @@ Exact values may be adjusted slightly during implementation to meet accessible c
 3. Gold appears only as a restrained brand accent, including fine lines or borders inspired by the full logo.
 4. Dusty blush is used sparingly and does not reduce readability.
 5. Existing single-page content and consultation functionality remain intact.
-6. WhatsApp actions continue to target `+91 63031 96195`.
+6. WhatsApp actions continue to target `+91 99999 99999`.
 7. Desktop and mobile layouts remain polished, with no overlaps, unexpected empty spaces, or horizontal scrolling.
 8. Light theme, dark theme, keyboard focus, validation, and reduced-motion behavior are verified.
 9. No old placeholder logo remains visible or referenced by the production page.

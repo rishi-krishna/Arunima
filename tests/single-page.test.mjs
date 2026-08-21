@@ -34,9 +34,10 @@ test("homepage contains the registration-free WhatsApp booking form", () => {
 });
 
 test("all live WhatsApp actions use the temporary destination", () => {
-  assert.doesNotMatch(index, /wa\.me\/916303196195/);
-  assert.doesNotMatch(siteConfig, /916303196195|\+91 63031 96195/);
-  assert.match(index, /wa\.me\/919999999999/);
+  const whatsappNumbers = [...`${index}\n${siteConfig}`.matchAll(/wa\.me\/(\d+)/g)]
+    .map((match) => match[1]);
+  assert.ok(whatsappNumbers.length >= 3);
+  assert.deepEqual(new Set(whatsappNumbers), new Set(["919999999999"]));
   assert.match(siteConfig, /whatsappNumber:\s*"\+91 99999 99999"/);
   assert.match(siteConfig, /whatsappBaseHref:\s*"https:\/\/wa\.me\/919999999999"/);
 });

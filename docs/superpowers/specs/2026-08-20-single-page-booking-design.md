@@ -9,7 +9,7 @@ Convert Dr. Arunima Musthyala's website into a single-page experience without re
 - Keep the current homepage sections, visual system, animations, and wording unchanged except where links or placeholder images must be adjusted for the single-page structure.
 - Use only HTML, CSS, and JavaScript already present in the repository.
 - Do not require patient registration, login, or an account.
-- Continue using WhatsApp number `+91 63031 96195` for consultation requests.
+- Continue using WhatsApp number `+91 99999 99999` for consultation requests.
 - Do not add addresses, email addresses, hospital names, ratings, patient counts, or removed credentials.
 
 ## Page Structure
@@ -94,6 +94,6 @@ Implementation is complete when:
 3. No public content page other than the homepage remains.
 4. Placeholder images are absent while their reserved layout spaces remain.
 5. The booking form appears near the bottom of the homepage and works without registration.
-6. A valid submission prepares and opens a WhatsApp request to `+91 63031 96195`.
+6. A valid submission prepares and opens a WhatsApp request to `+91 99999 99999`.
 7. Required-field validation, keyboard navigation, mobile layout, theme behavior, and console output are verified locally.
 8. The deployed GitHub Pages homepage reflects the same behavior.

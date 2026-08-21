@@ -555,7 +555,7 @@ Expected:
 - The exact JPEG renders once in the header.
 - No legacy SVG, placeholder images, navigation drawer, horizontal scroll, overlaps, console errors, or page errors are present.
 - Invalid consultation submission opens no URL.
-- Valid consultation submission opens `https://wa.me/916303196195?text=...` with the completed field values.
+- Valid consultation submission opens `https://wa.me/919999999999?text=...` with the completed field values.
 - Light theme is visibly warm and bright; dark theme body is `rgb(24, 48, 47)`.
 - Reduced-motion behavior remains active in the reduced-motion browser context.
 
@@ -595,5 +595,5 @@ Perform a final live-page check confirming:
 - `assets/images/nirmaya-logo-mark.jpeg` loads successfully.
 - `styles.css?v=20260821a` and `main.js?v=20260821a` are served.
 - The visible header reads `Dr. Arunima Musthyala` beside the supplied JPEG.
-- The booking form and all WhatsApp links still target `+91 63031 96195`.
+- The booking form and all WhatsApp links still target `+91 99999 99999`.
 - There are no console or page errors.

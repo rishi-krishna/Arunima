@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Polish the static site as Dr. Arunima Mustyala’s personal practice and make consultation requests work through a pre-filled WhatsApp message to `+91 63031 96195`.
+**Goal:** Polish the static site as Dr. Arunima Mustyala’s personal practice and make consultation requests work through a pre-filled WhatsApp message to `+91 99999 99999`.
 
 **Architecture:** Retain the existing vanilla HTML/CSS/JavaScript structure and shared Web Components. Centralize the WhatsApp base URL in `site-config.js`, generate booking messages in `forms.js`, and reuse shared components for persistent site-wide actions.
 
@@ -31,7 +31,7 @@
 Run:
 
 ```powershell
-node --input-type=module -e "import('./assets/js/site-config.js').then(({clinic}) => { if (clinic.whatsappBaseHref !== 'https://wa.me/916303196195') throw new Error('missing WhatsApp base URL') })"
+node --input-type=module -e "import('./assets/js/site-config.js').then(({clinic}) => { if (clinic.whatsappBaseHref !== 'https://wa.me/919999999999') throw new Error('missing WhatsApp base URL') })"
 ```
 
 Expected: FAIL with `missing WhatsApp base URL`.
@@ -43,10 +43,10 @@ Add to the `clinic` object:
 ```js
 practitioner: "Dr. Arunima Mustyala",
 clinicName: "Dr. Arunima Mustyala",
-whatsappNumber: "+91 63031 96195",
-whatsappBaseHref: "https://wa.me/916303196195",
+whatsappNumber: "+91 99999 99999",
+whatsappBaseHref: "https://wa.me/919999999999",
 whatsappHref:
-  "https://wa.me/916303196195?text=Hello%20Dr.%20Arunima%20Mustyala%2C%20I%20would%20like%20to%20know%20more%20about%20a%20consultation.",
+  "https://wa.me/919999999999?text=Hello%20Dr.%20Arunima%20Mustyala%2C%20I%20would%20like%20to%20know%20more%20about%20a%20consultation.",
 ```
 
 - [ ] **Step 3: Run the assertion**
@@ -74,7 +74,7 @@ git commit -m "feat: centralize Arunima WhatsApp booking URL"
 Run:
 
 ```powershell
-node --input-type=module -e "import('./assets/js/forms.js').then(({buildWhatsAppBookingUrl}) => { const url = buildWhatsAppBookingUrl({name:'Rishi',appointmentType:'Online video consultation',condition:'Allergies',preferredDate:'2026-08-10',preferredTime:'4:00 PM–7:00 PM',note:'First consultation'}); if (!url.startsWith('https://wa.me/916303196195?text=')) throw new Error('wrong destination'); const text=decodeURIComponent(url.split('?text=')[1]); for (const expected of ['Rishi','Online video consultation','Allergies','2026-08-10','4:00 PM–7:00 PM','First consultation']) if (!text.includes(expected)) throw new Error('missing '+expected); })"
+node --input-type=module -e "import('./assets/js/forms.js').then(({buildWhatsAppBookingUrl}) => { const url = buildWhatsAppBookingUrl({name:'Rishi',appointmentType:'Online video consultation',condition:'Allergies',preferredDate:'2026-08-10',preferredTime:'4:00 PM–7:00 PM',note:'First consultation'}); if (!url.startsWith('https://wa.me/919999999999?text=')) throw new Error('wrong destination'); const text=decodeURIComponent(url.split('?text=')[1]); for (const expected of ['Rishi','Online video consultation','Allergies','2026-08-10','4:00 PM–7:00 PM','First consultation']) if (!text.includes(expected)) throw new Error('missing '+expected); })"
 ```
 
 Expected: FAIL because `buildWhatsAppBookingUrl` is not exported.
@@ -151,7 +151,7 @@ Update the booking page to:
 <p class="form-status" data-form-status aria-live="polite"></p>
 <p>
   <a class="button button--whatsapp" data-whatsapp-fallback
-    href="https://wa.me/916303196195" target="_blank"
+    href="https://wa.me/919999999999" target="_blank"
     rel="noopener noreferrer" hidden>Open WhatsApp manually</a>
 </p>
 <p class="muted">Please do not share urgent or highly sensitive medical information through WhatsApp. This service is not monitored for emergencies.</p>
@@ -165,7 +165,7 @@ Run:
 
 ```powershell
 node --check assets/js/forms.js
-node --input-type=module -e "import('./assets/js/forms.js').then(({buildWhatsAppBookingUrl}) => { const url = buildWhatsAppBookingUrl({name:'Rishi',appointmentType:'Online video consultation',condition:'Allergies',preferredDate:'2026-08-10',preferredTime:'4:00 PM–7:00 PM',note:'First consultation'}); const text=decodeURIComponent(url.split('?text=')[1]); if (!url.startsWith('https://wa.me/916303196195?text=')) throw new Error('wrong destination'); for (const expected of ['Rishi','Online video consultation','Allergies','2026-08-10','4:00 PM–7:00 PM','First consultation']) if (!text.includes(expected)) throw new Error('missing '+expected); })"
+node --input-type=module -e "import('./assets/js/forms.js').then(({buildWhatsAppBookingUrl}) => { const url = buildWhatsAppBookingUrl({name:'Rishi',appointmentType:'Online video consultation',condition:'Allergies',preferredDate:'2026-08-10',preferredTime:'4:00 PM–7:00 PM',note:'First consultation'}); const text=decodeURIComponent(url.split('?text=')[1]); if (!url.startsWith('https://wa.me/919999999999?text=')) throw new Error('wrong destination'); for (const expected of ['Rishi','Online video consultation','Allergies','2026-08-10','4:00 PM–7:00 PM','First consultation']) if (!text.includes(expected)) throw new Error('missing '+expected); })"
 ```
 
 Expected: both commands exit 0.
@@ -212,7 +212,7 @@ Replace the hero secondary “Contact details” button with:
 
 ```html
 <a class="button button--whatsapp button--hero"
-  href="https://wa.me/916303196195?text=Hello%20Dr.%20Arunima%20Mustyala%2C%20I%20would%20like%20to%20know%20more%20about%20a%20consultation."
+  href="https://wa.me/919999999999?text=Hello%20Dr.%20Arunima%20Mustyala%2C%20I%20would%20like%20to%20know%20more%20about%20a%20consultation."
   target="_blank" rel="noopener noreferrer">
   WhatsApp Dr. Arunima
 </a>
@@ -268,7 +268,7 @@ Run:
 ```powershell
 node --check assets/js/components.js
 rg -n "Demo complete|demonstration form|does not send|Contact details|Book Appointment" index.html book-appointment/index.html assets/js/components.js
-rg -n "wa.me/916303196195" index.html book-appointment/index.html assets/js/components.js assets/js/site-config.js
+rg -n "wa.me/919999999999" index.html book-appointment/index.html assets/js/components.js assets/js/site-config.js
 ```
 
 Expected: the first search has no results; the WhatsApp search finds all intended entry points.
@@ -320,7 +320,7 @@ Expected: all syntax checks pass, `git diff --check` reports no errors, and the 
 
 Against `http://localhost:4173/`:
 
-- confirm the homepage exposes at least three correct `wa.me/916303196195` links;
+- confirm the homepage exposes at least three correct `wa.me/919999999999` links;
 - confirm the floating WhatsApp control exists on homepage, booking, about, treatment, location, and blog pages;
 - confirm header/mobile booking actions link to `/book-appointment/`;
 - submit an incomplete booking form and observe native validation;
@@ -348,5 +348,5 @@ Open `https://rishi-krishna.github.io/Arunima/?v=<commit>` and verify:
 - page height and styling match the local build;
 - the CSS and main module URLs contain `v=20260730c`;
 - the persistent WhatsApp control exists;
-- WhatsApp links point to `https://wa.me/916303196195`;
+- WhatsApp links point to `https://wa.me/919999999999`;
 - the booking form generates the same encoded WhatsApp request as the local build.

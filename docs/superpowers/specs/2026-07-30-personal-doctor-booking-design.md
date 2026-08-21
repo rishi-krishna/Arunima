@@ -10,7 +10,7 @@ Polish the existing static website into a clearly personal website for Dr. Aruni
 - Keep the current colors, typography, section order, responsive layout, and animations.
 - Use “Dr. Arunima Mustyala” consistently in visible brand and doctor-identification areas.
 - Keep phone numbers, email addresses, street addresses, and hospital names out of visible page content.
-- Use `+91 63031 96195` only as the destination behind WhatsApp links.
+- Use `+91 99999 99999` only as the destination behind WhatsApp links.
 
 ## Consultation Actions
 
@@ -19,7 +19,7 @@ Polish the existing static website into a clearly personal website for Dr. Aruni
 - A persistent WhatsApp shortcut appears on every page:
   - Desktop: labeled green pill.
   - Mobile: compact circular control with an accessible label.
-- Every WhatsApp action opens `wa.me/916303196195` in a new tab with a suitable pre-filled introductory message.
+- Every WhatsApp action opens `wa.me/919999999999` in a new tab with a suitable pre-filled introductory message.
 
 ## Booking Form
 
@@ -28,7 +28,7 @@ The booking page remains a native HTML form enhanced with JavaScript.
 1. The patient supplies their name, consultation type, preferred date/time, contact preference, and a short note using the existing form fields.
 2. Required fields are validated using native constraints and small inline guidance.
 3. On valid submission, JavaScript builds a concise, URL-encoded WhatsApp message.
-4. The browser opens a `wa.me/916303196195` URL containing the booking summary.
+4. The browser opens a `wa.me/919999999999` URL containing the booking summary.
 5. The page keeps a direct WhatsApp fallback link if pop-up handling or browser restrictions prevent automatic navigation.
 
 The form must not imply that a consultation is confirmed. Copy must say that Dr. Arunima will confirm availability separately. A brief notice must discourage patients from sharing urgent or highly sensitive medical information through WhatsApp.

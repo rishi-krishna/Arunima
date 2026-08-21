@@ -14,7 +14,6 @@ Temporarily route every live WhatsApp action on the single-page website to `9199
 
 ## Verification
 
-- Search production files to confirm no live reference to `916303196195` remains.
+- Search production files to confirm every live WhatsApp reference uses the current destination.
 - Confirm the booking URL builder produces a `https://wa.me/919999999999?text=...` URL.
 - Run the existing structural tests and JavaScript syntax checks.
-
