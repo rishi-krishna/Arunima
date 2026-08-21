@@ -13,6 +13,9 @@
   --blush: #e4bcbc;
   --logo-ivory: #fbf5ec;
   --section-soft: #f7e8e2;
+  --section-default: var(--background);
+  --section-primary-tint: color-mix(in srgb, var(--primary) 5%, var(--background));
+  --section-experiences: color-mix(in srgb, var(--muted) 30%, var(--background));
   --muted: #f0e4d7;
   --muted-foreground: #657170;
   --card: #fffaf2;
@@ -38,6 +41,9 @@
   --blush: #b98082;
   --logo-ivory: #fbf5ec;
   --section-soft: #243f3d;
+  --section-default: var(--background);
+  --section-primary-tint: color-mix(in srgb, var(--primary) 5%, var(--background));
+  --section-experiences: color-mix(in srgb, var(--muted) 30%, var(--background));
   --muted: #294442;
   --muted-foreground: #c8d1cd;
   --card: #203a38;
@@ -141,7 +147,9 @@ h4 {
 }
 
 .site-section {
+  --section-color: var(--section-default);
   padding-block: 64px;
+  background: var(--section-color);
 }
 
 .site-section--large {
@@ -149,11 +157,43 @@ h4 {
 }
 
 .site-section--sage {
-  background: var(--section-soft);
+  --section-color: var(--section-soft);
 }
 
 .site-section--primary-tint {
-  background: color-mix(in srgb, var(--primary) 5%, var(--background));
+  --section-color: var(--section-primary-tint);
+}
+
+[data-theme="light"] .site-section {
+  background: linear-gradient(
+    to bottom,
+    var(--section-from, var(--section-color)) 0,
+    var(--section-color) 40px
+  );
+}
+
+[data-theme="dark"] .site-section {
+  background: var(--section-color);
+}
+
+[data-theme="light"] .hero + .site-section {
+  --section-from: var(--section-default);
+}
+
+[data-theme="light"] .site-section--sage + .experiences-section {
+  --section-from: var(--section-soft);
+}
+
+[data-theme="light"] .experiences-section + .site-section--primary-tint {
+  --section-from: var(--section-experiences);
+}
+
+[data-theme="light"] .site-section--primary-tint + .site-section {
+  --section-from: var(--section-primary-tint);
+}
+
+[data-theme="light"] .site-section:not(.site-section--sage) + .site-section--sage {
+  --section-from: var(--section-default);
 }
 
 .section-heading {
@@ -1253,8 +1293,8 @@ main > .site-section[aria-labelledby="protocols-title"] {
 }
 
 .experiences-section {
+  --section-color: var(--section-experiences);
   padding-bottom: 0;
-  background: color-mix(in srgb, var(--muted) 30%, transparent);
 }
 
 .experiences-section + .site-section--primary-tint {

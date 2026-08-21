@@ -86,12 +86,12 @@ test("site uses the approved light Nirmaya palette", () => {
 test("production entry assets share the current cache version", () => {
   const sources = [index, main, components, forms, interactions];
   for (const source of sources) {
-    assert.doesNotMatch(source, /20260821a/);
+    assert.doesNotMatch(source, /20260821b/);
   }
-  assert.match(index, /styles\.css\?v=20260821b/);
-  assert.match(index, /main\.js\?v=20260821b/);
+  assert.match(index, /styles\.css\?v=20260821c/);
+  assert.match(index, /main\.js\?v=20260821c/);
   for (const source of [main, components, forms, interactions]) {
-    assert.match(source, /20260821b/);
+    assert.match(source, /20260821c/);
   }
 });
 
@@ -110,6 +110,28 @@ test("valid booking uses same-page WhatsApp navigation", () => {
   assert.doesNotMatch(forms, /window\.open\(bookingUrl/);
   assert.match(forms, /fallback\.href = bookingUrl/);
   assert.match(forms, /fallback\.hidden = false/);
+});
+
+test("light mode blends differing section colors over 40px", () => {
+  assert.match(
+    styles,
+    /\[data-theme="light"\] \.site-section\s*\{[\s\S]*?linear-gradient\([\s\S]*?40px/,
+  );
+  assert.match(styles, /\.hero \+ \.site-section[\s\S]*?--section-from:\s*var\(--section-default\)/);
+  assert.match(styles, /\.site-section--sage \+ \.experiences-section[\s\S]*?--section-from:\s*var\(--section-soft\)/);
+  assert.match(styles, /\.experiences-section \+ \.site-section--primary-tint[\s\S]*?--section-from:\s*var\(--section-experiences\)/);
+  assert.match(styles, /\.site-section--primary-tint \+ \.site-section[\s\S]*?--section-from:\s*var\(--section-primary-tint\)/);
+});
+
+test("dark mode keeps solid section backgrounds", () => {
+  assert.match(
+    styles,
+    /\[data-theme="dark"\] \.site-section\s*\{\s*background:\s*var\(--section-color\);\s*\}/,
+  );
+  const darkSectionRule = styles.match(
+    /\[data-theme="dark"\] \.site-section\s*\{[\s\S]*?\}/,
+  )?.[0] ?? "";
+  assert.doesNotMatch(darkSectionRule, /linear-gradient/);
 });
 
 test("index is the only public content page", () => {
