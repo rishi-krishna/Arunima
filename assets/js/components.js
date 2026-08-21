@@ -1,4 +1,4 @@
-import { clinic } from "./site-config.js?v=20260820g";
+import { clinic } from "./site-config.js?v=20260821a";
 
 const BaseElement = typeof HTMLElement === "undefined" ? class {} : HTMLElement;
 
@@ -20,7 +20,7 @@ class SiteHeader extends BaseElement {
       <header class="site-nav">
         <div class="container site-nav__inner">
           <a class="site-brand" href="#main-content" aria-label="${escapeHtml(clinic.clinicName)} home">
-            <img src="/assets/images/logo-mark.svg" alt="" width="38" height="38">
+            <img src="assets/images/nirmaya-logo-mark.jpeg" alt="" width="52" height="40">
             <span>${escapeHtml(clinic.practitioner)}</span>
           </a>
           <div class="site-nav__actions">

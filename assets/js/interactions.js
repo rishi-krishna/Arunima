@@ -1,4 +1,4 @@
-import { clinic } from "./site-config.js?v=20260820g";
+import { clinic } from "./site-config.js?v=20260821a";
 
 export const storage = {
   get(key) {
