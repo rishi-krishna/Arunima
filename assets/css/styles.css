@@ -4,6 +4,7 @@
   --background: #fffdf9;
   --foreground: #263e3f;
   --heading: #245657;
+  --header-foreground: #23666b;
   --primary: #337d7d;
   --primary-foreground: #fffdf9;
   --hero-cta: #337d7d;
@@ -28,6 +29,7 @@
   --background: #18302f;
   --foreground: #f8f2e8;
   --heading: #f5e9d5;
+  --header-foreground: #23666b;
   --primary: #82c4c1;
   --primary-foreground: #163331;
   --hero-cta: #82c4c1;
@@ -338,7 +340,7 @@ h4 {
   align-items: center;
   gap: 12px;
   margin-right: auto;
-  color: var(--heading);
+  color: var(--header-foreground);
   font-size: 20px;
   font-weight: 700;
 }

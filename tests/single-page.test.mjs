@@ -86,13 +86,30 @@ test("site uses the approved light Nirmaya palette", () => {
 test("production entry assets share the current cache version", () => {
   const sources = [index, main, components, forms, interactions];
   for (const source of sources) {
-    assert.doesNotMatch(source, /20260820g/);
+    assert.doesNotMatch(source, /20260821a/);
   }
-  assert.match(index, /styles\.css\?v=20260821a/);
-  assert.match(index, /main\.js\?v=20260821a/);
+  assert.match(index, /styles\.css\?v=20260821b/);
+  assert.match(index, /main\.js\?v=20260821b/);
   for (const source of [main, components, forms, interactions]) {
-    assert.match(source, /20260821a/);
+    assert.match(source, /20260821b/);
   }
+});
+
+test("header name keeps the softened logo teal in both themes", () => {
+  const headerTokenMatches =
+    styles.toLowerCase().match(/--header-foreground:\s*#23666b/g) ?? [];
+  assert.equal(headerTokenMatches.length, 2);
+  assert.match(
+    styles,
+    /\.site-brand\s*\{[\s\S]*?color:\s*var\(--header-foreground\)/,
+  );
+});
+
+test("valid booking uses same-page WhatsApp navigation", () => {
+  assert.match(forms, /window\.location\.assign\(bookingUrl\)/);
+  assert.doesNotMatch(forms, /window\.open\(bookingUrl/);
+  assert.match(forms, /fallback\.href = bookingUrl/);
+  assert.match(forms, /fallback\.hidden = false/);
 });
 
 test("index is the only public content page", () => {

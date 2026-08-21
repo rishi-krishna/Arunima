@@ -1,4 +1,4 @@
-import { clinic } from "./site-config.js?v=20260821a";
+import { clinic } from "./site-config.js?v=20260821b";
 
 export function buildWhatsAppBookingUrl(values) {
   const lines = [
@@ -77,7 +77,7 @@ export function initForms(root = document) {
         status.textContent =
           "Your request is ready. Continue in WhatsApp to send it to Dr. Arunima.";
       }
-      window.open(bookingUrl, "_blank", "noopener,noreferrer");
+      window.location.assign(bookingUrl);
     });
   });
 }
