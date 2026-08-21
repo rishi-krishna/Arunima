@@ -89,12 +89,12 @@ test("site uses the approved light Nirmaya palette", () => {
 test("production entry assets share the current cache version", () => {
   const sources = [index, main, components, forms, interactions];
   for (const source of sources) {
-    assert.doesNotMatch(source, /20260821[bcd]/);
+    assert.doesNotMatch(source, /20260821[bcde]/);
   }
-  assert.match(index, /styles\.css\?v=20260821e/);
-  assert.match(index, /main\.js\?v=20260821e/);
+  assert.match(index, /styles\.css\?v=20260821f/);
+  assert.match(index, /main\.js\?v=20260821f/);
   for (const source of [main, components, forms, interactions]) {
-    assert.match(source, /20260821e/);
+    assert.match(source, /20260821f/);
   }
 });
 
@@ -108,16 +108,13 @@ test("header name keeps the softened logo teal in both themes", () => {
   );
 });
 
-test("dark mode keeps the current logo on a soft brand backing", () => {
+test("header logo has no CSS backing so the transparent PNG blends in", () => {
   assert.match(
     styles,
-    /\[data-theme="dark"\] \.site-brand img\s*\{[\s\S]*?background:\s*color-mix\(in srgb, var\(--logo-ivory\) 88%, transparent\)/,
+    /\.site-brand img\s*\{[\s\S]*?background:\s*transparent/,
   );
-  assert.match(
-    styles,
-    /\[data-theme="dark"\] \.site-brand img\s*\{[\s\S]*?border:\s*1px solid color-mix\(in srgb, var\(--gold\) 32%, transparent\)/,
-  );
-  assert.doesNotMatch(styles, /dark-logo|logo-glow|filter:\s*drop-shadow/i);
+  assert.doesNotMatch(styles, /\[data-theme="dark"\] \.site-brand img/);
+  assert.doesNotMatch(styles, /dark-logo|logo-glow|filter:\s*drop-shadow|box-shadow:\s*0 8px 22px/i);
 });
 
 test("valid booking uses same-page WhatsApp navigation", () => {
