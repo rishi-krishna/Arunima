@@ -45,8 +45,8 @@ test("shared header contains no menu or drawer", () => {
   assert.match(components, /href="#consultation-booking"/);
 });
 
-test("shared branding uses the exact supplied Nirmaya JPEG", () => {
-  const productionLogo = join(root, "assets/images/nirmaya-logo-mark.jpeg");
+test("shared branding uses the supplied transparent Nirmaya PNG", () => {
+  const productionLogo = join(root, "assets/images/nirmaya-logo-mark-transparent.png");
   assert.equal(existsSync(productionLogo), true);
   const digest = createHash("sha256")
     .update(readFileSync(productionLogo))
@@ -54,14 +54,17 @@ test("shared branding uses the exact supplied Nirmaya JPEG", () => {
 
   assert.equal(
     digest,
-    "ea1fe7ba4a42655fb621ac322f0bf619a0cb31c3151be55c0153e907846494d2",
+    "3881bd78339b5ef32e66567c4d9a29ad6cc0294c16f103b86c7e8a31adc52346",
   );
-  assert.match(index, /href="assets\/images\/nirmaya-logo-mark\.jpeg" type="image\/jpeg"/);
+  const bytes = readFileSync(productionLogo);
+  assert.equal(bytes.toString("ascii", 1, 4), "PNG");
+  assert.equal(bytes[25], 6);
+  assert.match(index, /href="assets\/images\/nirmaya-logo-mark-transparent\.png" type="image\/png"/);
   assert.match(
     components,
-    /<img src="assets\/images\/nirmaya-logo-mark\.jpeg" alt="" width="52" height="40">/,
+    /<img src="assets\/images\/nirmaya-logo-mark-transparent\.png" alt="" width="54" height="36">/,
   );
-  assert.doesNotMatch(`${index}\n${components}`, /logo-mark\.svg/);
+  assert.doesNotMatch(`${index}\n${components}`, /logo-mark\.svg|nirmaya-logo-mark\.jpeg/);
 });
 
 test("site uses the approved light Nirmaya palette", () => {
@@ -86,12 +89,12 @@ test("site uses the approved light Nirmaya palette", () => {
 test("production entry assets share the current cache version", () => {
   const sources = [index, main, components, forms, interactions];
   for (const source of sources) {
-    assert.doesNotMatch(source, /20260821b/);
+    assert.doesNotMatch(source, /20260821[bc]/);
   }
-  assert.match(index, /styles\.css\?v=20260821c/);
-  assert.match(index, /main\.js\?v=20260821c/);
+  assert.match(index, /styles\.css\?v=20260821d/);
+  assert.match(index, /main\.js\?v=20260821d/);
   for (const source of [main, components, forms, interactions]) {
-    assert.match(source, /20260821c/);
+    assert.match(source, /20260821d/);
   }
 });
 
