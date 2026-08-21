@@ -393,6 +393,16 @@ h4 {
   object-fit: contain;
 }
 
+[data-theme="dark"] .site-brand img {
+  width: 62px;
+  height: 46px;
+  padding: 5px 8px;
+  border: 1px solid color-mix(in srgb, var(--gold) 32%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--logo-ivory) 88%, transparent);
+  box-shadow: 0 8px 22px rgb(0 0 0 / .16);
+}
+
 .site-nav__whatsapp {
   display: inline-flex;
   min-height: 40px;
@@ -1051,6 +1061,13 @@ h4 {
   .site-brand img {
     width: 45px;
     height: 35px;
+  }
+
+  [data-theme="dark"] .site-brand img {
+    width: 54px;
+    height: 40px;
+    padding: 4px 7px;
+    border-radius: 16px;
   }
 
   .hero {
